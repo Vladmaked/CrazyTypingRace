@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GameComponent } from './pages/game/game.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '**', component: GameComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent,
-    NotFoundComponent
+    GameComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
