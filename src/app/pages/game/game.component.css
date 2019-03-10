@@ -1,0 +1,6 @@
+.text {
+  display: block;
+  font-size: 60px;
+  letter-spacing: 1px;
+  color: rgba(32, 30, 28, 0.9);
+}
