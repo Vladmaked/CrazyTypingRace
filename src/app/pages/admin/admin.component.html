@@ -1,0 +1,10 @@
+
+<form [formGroup]="createNewTextForm" (ngSubmit)="onSubmit()" novalidate>
+  <label>category</label>
+  <input formControlName="category">
+  <label>theme</label>
+  <input formControlName="theme">
+  <label>body</label>
+  <input formControlName="body">
+  <button type="submit" [disabled]="createNewTextForm.pristine">Save</button>
+</form>
