@@ -6,12 +6,12 @@ import { GameComponent } from './pages/game/game.component';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceService} from './service.service';
-import { AdminComponent } from './pages/admin/admin.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AdminComponent} from './pages/admin/admin.component';
 
 const routes: Routes = [
   { path: 'game', component: GameComponent },
-  { path: 'admin', component: AdminComponent},
+  { path: 'admin', component: AdminComponent },
   { path: '**', component: AppComponent }
 ];
 
