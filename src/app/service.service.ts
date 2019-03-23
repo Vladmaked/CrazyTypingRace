@@ -18,8 +18,7 @@ export class ServiceService {
         'Access-Control-Allow-Headers': 'Content-Type, Access, Origin',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Credentials': 'true'
-        // 'Access-Control-Request-Method': 'POST'
-      })/*.pipe( map(res => res), catchError(err => throwError(err)))*/})
+      })})
       .subscribe(
         (val) => {
           console.log('POST call successful value returned in body', val);
