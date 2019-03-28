@@ -9,7 +9,7 @@ export class ServiceService {
   private api = environment;
   constructor( private http: HttpClient ) { }
 
-  postText(servers: object) {
+  putText( servers: object) {
     alert('The results are:' + servers);
     return this.http.post( this.api.apiUrl + '/db/add/text', JSON.stringify(servers), {
       headers: new HttpHeaders({
