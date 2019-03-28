@@ -1,6 +1,28 @@
+.page {
+  color: #f8f8f8;
+  height: 1vh;
+  background-color: #383F66;
+}
+
 .text {
   display: block;
   font-size: 60px;
   letter-spacing: 1px;
-  color: rgba(32, 30, 28, 0.9);
+  color: #74BA6D;
+}
+
+.page__container {
+  height: 100px;
+  width: 800px;
+  /*background-color: #260D54;*/
+}
+
+.mountains {
+  height: 50%;
+  width: 50%;
+  /*background-color: #255636;*/
+}
+
+.car {
+  width: 200px;
 }

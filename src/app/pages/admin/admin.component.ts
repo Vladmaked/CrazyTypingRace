@@ -29,6 +29,6 @@ export class AdminComponent implements OnInit {
 
   onSubmit(  ) {
     console.log(this.createNewTextForm.value);
-    this.configServers.putText(this.createNewTextForm.value);
+    this.configServers.postText(this.createNewTextForm.value);
   }
 }
