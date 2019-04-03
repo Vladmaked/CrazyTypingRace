@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './pages/game/game.component';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import {ServiceService} from './service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AdminComponent} from './pages/admin/admin.component';
 
@@ -29,7 +28,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

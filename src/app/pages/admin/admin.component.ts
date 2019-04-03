@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import { ServiceService } from '../../service.service';
 
 @Component({
   selector: 'app-admin',
@@ -11,8 +10,7 @@ import { ServiceService } from '../../service.service';
 export class AdminComponent implements OnInit {
   createNewTextForm: FormGroup;
 
-  constructor( private formBuilder: FormBuilder,
-               private configServers: ServiceService ) {
+  constructor( private formBuilder: FormBuilder ) {
     this.createNewTextForm = this.createFormGroup();
   }
 
