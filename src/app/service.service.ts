@@ -21,11 +21,6 @@ export class ServiceService {
           console.log('POST call successful value returned in body', val);
         },
         response => {
-          const reader = new FileReader();
-          reader.onloadend = (e) => {
-            const readerResult = reader.result;
-            console.log('Render res:  ' + readerResult); // ця штука не спрацьовує
-          };
           console.log('POST call in error', response);
         },
         () => {
@@ -34,4 +29,7 @@ export class ServiceService {
       );
   }
 
+  getCategiryAndTheme(category: string, theme: string) {
+    return this.http.get(this.api.apiUrl + '/db/text/?category=' + category + '&theme=' + theme).toPromise();
+  }
 }
