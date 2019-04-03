@@ -6,20 +6,16 @@ import {throwError} from 'rxjs';
 
 @Injectable()
 export class ServiceService {
+
   private api = environment;
+
   constructor( private http: HttpClient ) { }
 
   putText( servers: object) {
-    alert('The results are:' + servers);
     return this.http.post( this.api.apiUrl + '/db/add/text', JSON.stringify(servers), {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Access-Control-Allow-Headers': 'Content-Type, Access, Origin',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Credentials': 'true'
-        // 'Access-Control-Request-Method': 'POST'
-      })/*.pipe( map(res => res), catchError(err => throwError(err)))*/})
+        'Content-Type': 'application/json'
+      })})
       .subscribe(
         (val) => {
           console.log('POST call successful value returned in body', val);
@@ -37,4 +33,5 @@ export class ServiceService {
         }
       );
   }
+
 }
