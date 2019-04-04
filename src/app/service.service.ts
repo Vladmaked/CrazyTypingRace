@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment.prod';
-import {catchError, map} from 'rxjs/operators';
-import {throwError} from 'rxjs';
 
 @Injectable()
 export class ServiceService {
@@ -29,7 +27,12 @@ export class ServiceService {
       );
   }
 
-  getCategiryAndTheme(category: string, theme: string) {
+  getCategoryAndTheme() {
+    return this.http.get(this.api.apiUrl + '/db/themes').toPromise();
+  }
+
+  getRandomText(category: string, theme: string) {
     return this.http.get(this.api.apiUrl + '/db/text/?category=' + category + '&theme=' + theme).toPromise();
   }
+
 }
