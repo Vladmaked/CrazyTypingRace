@@ -36,3 +36,6 @@ export class ServiceService {
   }
 
 }
+// TODO methods for login:
+//  - get - /db/user?login="значення"(повертає дані по користувачу)
+//  - post - /db/add/user - приймає JSON { "login": "...", ... }
