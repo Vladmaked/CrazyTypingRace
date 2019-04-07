@@ -19,8 +19,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     GameComponent,
-    AdminComponent,
-    GameLogicComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,
