@@ -12,15 +12,11 @@ export class ServiceService {
   putText( servers: object) {
     return this.http.post( this.api.apiUrl + '/db/add/text', JSON.stringify(servers), {
       headers: new HttpHeaders({
-<<<<<<< HEAD
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'http://localhost:3000',
         'Access-Control-Allow-Headers': 'Content-Type, Access, Origin',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Credentials': 'true'
-=======
-        'Content-Type': 'application/json'
->>>>>>> workWithServer
       })})
       .subscribe(
         (val) => {
