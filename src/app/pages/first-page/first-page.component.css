@@ -1,0 +1,124 @@
+.page__global {
+  background-color: #38425d;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.page__global_info {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  width: 100%;
+  align-content: start;
+  align-items: center;
+}
+
+.menu_list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  height: 20px;
+  width: 100px;
+  display: inline-block;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #396031;
+}
+
+.btn-section {
+  display: flex;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.btn__call-modal-window {
+  display: inline-block;
+  margin: auto;
+  padding: 42px 84px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffe58d;
+  color: #38425d;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 5px;
+}
+
+.btn__call-modal-window:hover {
+  background-color: #fdff60;
+  cursor: pointer;
+}
+
+.page__global_modal-window {
+  height: 100vh;
+  width: 100vw;
+  display: none; /* flex */
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.form {
+  max-width: 560px;
+  padding: 50px;
+  justify-content: center;
+  background-color: #ffe58d;
+}
+
+.inputs {
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input {
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  height: auto;
+  width: 500px;
+  padding: 20px;
+
+  font-size: 20px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.input_category {
+  background-color: #444e6f;
+}
+
+.input_theme {
+  background-color: #49526f;
+}
+
+.link_submit {
+  display: block;
+  width: 196px;
+  height: 52px;
+  margin: 6% auto 0;
+  border: none;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #243f20 0%, #396031 100%);
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+  padding: 0 0 0 7px;
+}
