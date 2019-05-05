@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import {Component, HostListener, Injectable, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Injectable, OnInit} from '@angular/core';
 import {HtmlService} from '../../html.service';
 import {FirstPageComponent} from '../first-page/first-page.component';
-=======
-import {Component, HostListener, Input, OnInit} from '@angular/core';
->>>>>>> 48c7fbeb54c8a7614da96373ea2cb148fa3064d9
 
 @Component({
   selector: 'app-game',
@@ -17,11 +13,7 @@ import {Component, HostListener, Input, OnInit} from '@angular/core';
 })
 
 export class GameComponent implements OnInit {
-<<<<<<< HEAD
   text = this.htmlService.textOnService;
-=======
-  text = 'm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m';
->>>>>>> 48c7fbeb54c8a7614da96373ea2cb148fa3064d9
   indexLetter = 0;
   indexSpan = 0;
   letters = [{
