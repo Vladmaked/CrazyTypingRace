@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
 
 import { AppComponent } from './app.component';
 import { GameComponent } from './pages/game/game.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [FirstPageComponent],
   bootstrap: [AppComponent]
