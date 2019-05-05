@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'home', component: FirstPageComponent },
   { path: '', component: FirstPageComponent },
-  { path: '**', component: AppComponent}
+  { path: '**', component: FirstPageComponent}
 ];
 
 @NgModule({
