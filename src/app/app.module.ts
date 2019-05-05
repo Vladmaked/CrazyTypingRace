@@ -7,13 +7,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AdminComponent} from './pages/admin/admin.component';
-import {FirstPageComponent} from "./pages/first-page/first-page.component";
+import {FirstPageComponent} from './pages/first-page/first-page.component';
 
 const routes: Routes = [
   { path: 'game', component: GameComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'home', component: FirstPageComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component: FirstPageComponent },
   { path: '**', component: AppComponent}
 ];
 
@@ -32,7 +32,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FirstPageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

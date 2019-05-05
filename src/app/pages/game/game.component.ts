@@ -1,4 +1,6 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Injectable, Input, OnInit} from '@angular/core';
+import {HtmlService} from '../../html.service';
+import {FirstPageComponent} from '../first-page/first-page.component';
 
 @Component({
   selector: 'app-game',
@@ -6,8 +8,12 @@ import {Component, HostListener, OnInit} from '@angular/core';
   styleUrls: ['./game.component.css']
 })
 
+@Injectable({
+  providedIn: 'root',
+})
+
 export class GameComponent implements OnInit {
-  text = 'my text';
+  text = this.htmlService.textOnService;
   indexLetter = 0;
   indexSpan = 0;
   letters = [{
@@ -23,7 +29,8 @@ export class GameComponent implements OnInit {
     this.checkLetter();
   }
 
-  constructor() { }
+  constructor(private htmlService: HtmlService, private firstPage: FirstPageComponent) {
+  }
 
   ngOnInit() {
     for (let i = 0; i < this.letters[0].symbol.length; i++) {

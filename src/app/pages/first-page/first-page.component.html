@@ -2,35 +2,30 @@
   <div class="page__global_info">
     <nav class="menu">
       <ul class="menu_list">
-        <li><a href="#" class="link">About us</a></li>
-        <li><a href="#" class="link">Log in</a></li>
+        <li><a routerLink="" class="link">About Us</a></li>
+        <li><a routerLink="" class="link">Log in</a></li>
       </ul>
     </nav>
     <div class="btn-section">
-      <button class="btn__call-modal-window" (click)="onClick()">Start</button>
+      <button *ngIf="!isRendered" class="btn__call-modal-window" (click)="onClickStart()">Start</button>
+    </div>
+    <div id="form" class="page__global_modal-window" *ngIf="isRendered">
+      <form class="form" [formGroup]="gameSettingsForm">
+        <div>
+          <label *ngFor="let category of htmlService.categories" >
+            <input type="radio" formControlName="category" value="{{category.category}}" (click)="onCategorySelect(this.category.category)" name="category" >
+            {{category.category}}
+          </label>
+        </div>
+        <div>
+          <label *ngFor="let theme of htmlService.themes">
+            <input type="radio" formControlName="theme" value="{{theme.theme}}"  name="theme" (click)="onThemeSelect(this.theme.theme)">
+            {{theme.theme}}
+          </label>
+        </div>
+        <input routerLink="/game" class="link link_submit text-submit" type="submit" (click)="onClickStartToPlay()" value="Start to play" >
+      </form>
+      <!--/* routerLink="/game" */-->
     </div>
   </div>
-</div>
-<div id="form" class="page__global_modal-window">
-  <form class="form" [formGroup]="createNewGetForm" (ngSubmit)="onSubmit()">
-    <div class="inputs">
-      <input class="input input_category" type="radio" id="firstCategory" name="category" value="category" formControlName="category">
-      <label for="firstCategory">first category</label>
-      <input class="input input_category" type="radio" id="secondCategory" name="category" formControlName="category">
-      <label for="secondCategory">second category</label>
-      <input class="input input_category" type="radio" id="thirdCategory" name="category" formControlName="category">
-      <label for="thirdCategory">third category</label>
-    </div>
-    <div class="inputs">
-      <input class="input input_category" type="radio" id="firstTheme" name="theme" value="theme" formControlName="theme">
-      <label for="firstTheme">first category</label>
-      <input class="input input_category" type="radio" id="secondTheme" name="theme" formControlName="theme">
-      <label for="secondTheme">second category</label>
-      <input class="input input_category" type="radio" id="thirdTheme" name="theme" formControlName="theme">
-      <label for="thirdTheme">third category</label>
-
-    </div>
-    <input class="link link_submit text-submit" type="submit" value="Start to play ">
-  </form>
-  <!--/* routerLink="/game" */-->
 </div>
