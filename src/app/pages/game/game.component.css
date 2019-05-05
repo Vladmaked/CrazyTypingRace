@@ -1,6 +1,132 @@
+.header {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #38425d;
+}
+
+.menu_list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu_list__item {
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 25px;
+  text-align: center;
+  color: black;
+  opacity: 0.7;
+}
+
+.menu_list__item--login {
+  background-color: #ffff80;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  height: 65vh;
+  width: 100vw;
+  align-items: flex-end;
+}
+
+.container_tree,
+.container_grass,
+.container_bug,
+.road {
+  width: 100vw;
+  position: absolute;
+  overflow-x: hidden;
+}
+
+.container_tree {
+  height: 50%;
+  padding-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_grass {
+  height: 5%;
+  background-color: #386031;
+}
+
+.container_bug {
+  height: 3%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tree, .grass {
+  height: 100%;
+}
+
+.tree {
+  padding-left: 30px;
+}
+
+.grass {
+  width: 120px;
+}
+
+.grass_polygon {
+  fill: #243F20;
+}
+
+/* . . . */
+
+.container_mountains {
+  background-color: #38425d;
+}
+
+.mountains {
+  width: 100%;
+  height: 90%;
+  padding-bottom: 1%;
+}
+
 .text {
+  margin: auto;
   display: block;
-  font-size: 60px;
-  letter-spacing: 1px;
-  color: rgba(32, 30, 28, 0.9);
+  width: 48%;
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: rgb(15, 206, 208);
+  text-align: justify;
+}
+
+.menu_list__item:hover, .menu_list__item:active {
+  background-color: violet;
+}
+
+/* . . . */
+
+.road {
+  height: 25vh;
+  width: 100vw;
+  background-color: #333333;
+  bottom:0;
+  right:0;
+}
+
+.road_up {
+  height: 43%;
+}
+
+.line {
+  height: 4%;
+  background-color: white;
+}
+
+.road_down {
+  height: 51%;
+}
+
+.car {
+  height: 80%;
 }
