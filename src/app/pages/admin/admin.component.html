@@ -1,10 +1,21 @@
-
-<form [formGroup]="createNewTextForm" (ngSubmit)="onSubmit()" novalidate>
-  <label>category</label>
-  <input formControlName="category">
-  <label>theme</label>
-  <input formControlName="theme">
-  <label>body</label>
-  <input formControlName="body">
-  <button type="submit" [disabled]="createNewTextForm.pristine">Save</button>
+<form [formGroup]="categoryAdditionForm" (ngSubmit)="onSubmitCategory()">
+  <label>Category
+    <input formControlName="category"></label>
+  <button type="submit">Save</button>
+</form>
+<form [formGroup]="themeAdditionForm" (ngSubmit)="onSubmitTheme()">
+  <label>Category
+    <input formControlName="category"></label>
+  <label>Theme
+    <input formControlName="theme"></label>
+  <button type="submit">Save</button>
+</form>
+<form [formGroup]="textAdditionForm" (ngSubmit)="onSubmitText()" novalidate>
+  <label>Category
+    <input formControlName="category"></label>
+  <label>Theme
+    <input formControlName="theme"></label>
+  <label>Body
+    <input formControlName="body"></label>
+  <button type="submit">Save</button>
 </form>

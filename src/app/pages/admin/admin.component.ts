@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {HtmlService} from '../../html.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,24 +9,41 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 })
 
 export class AdminComponent implements OnInit {
-  createNewTextForm: FormGroup;
 
-  constructor( private formBuilder: FormBuilder ) {
-    this.createNewTextForm = this.createFormGroup();
-  }
+  categoryAdditionForm: FormGroup;
+  themeAdditionForm: FormGroup;
+  textAdditionForm: FormGroup;
 
-  createFormGroup() {
-    return new FormGroup({
-      category: new FormControl(),
-      theme: new FormControl(),
-      body: new FormControl()
+  constructor( private fb: FormBuilder, private htmlService: HtmlService) {}
+
+  ngOnInit() {
+    this.textAdditionForm = this.fb.group({
+      category: null,
+      theme: null,
+      body: null
+    });
+
+    this.categoryAdditionForm = this.fb.group({
+      category: null
+    });
+
+    this.themeAdditionForm = this.fb.group({
+      category: null,
+      theme: null
     });
   }
 
-  ngOnInit() {
+
+  onSubmitCategory() {
+    this.htmlService.postCategory(this.categoryAdditionForm.value);
   }
 
-  onSubmit(  ) {
-    console.log(this.createNewTextForm.value);
+  onSubmitTheme() {
+    this.htmlService.postTheme(this.themeAdditionForm.value);
+  }
+
+  onSubmitText() {
+    console.log(this.textAdditionForm.value);
+    this.htmlService.postText(this.textAdditionForm.value);
   }
 }

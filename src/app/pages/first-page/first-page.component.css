@@ -2,22 +2,20 @@
   background-color: #38425d;
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  /*position: absolute;*/
 }
 
 .page__global_info {
   margin: auto;
   height: 100%;
-  width: 100%;
-  flex-direction: column;
   display: flex;
-  align-items: center;
+  align-items:center;
+  flex-direction: column;
 }
 
 .menu {
   width: 100%;
-  align-content: start;
-  align-items: center;
+  flex: 1;
 }
 
 .menu_list {
@@ -25,7 +23,6 @@
   margin: 0;
   list-style-type: none;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -36,19 +33,16 @@
   padding: 15px 20px;
   text-align: center;
   text-decoration: none;
-  background-color: #396031;
+  font-size: 24px;
+  color: #38425d;
+  background-color: #ffe58d;
 }
 
 .btn-section {
-  display: flex;
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  flex: 2;
 }
 
 .btn__call-modal-window {
-  display: inline-block;
   margin: auto;
   padding: 42px 84px;
   border: none;
@@ -57,7 +51,7 @@
   background-color: #ffe58d;
   color: #38425d;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 50px;
   letter-spacing: 5px;
 }
 
@@ -67,12 +61,9 @@
 }
 
 .page__global_modal-window {
-  height: 100vh;
-  width: 100vw;
-  display: none; /* flex */
-  align-items: center;
-  justify-content: center;
+  display: flex;
   position: absolute;
+  margin-top: 40vh;
 }
 
 .form {
@@ -91,9 +82,7 @@
 .input {
   display: block;
   position: relative;
-  margin: 40px auto;
   height: auto;
-  width: 500px;
   padding: 20px;
 
   font-size: 20px;
@@ -103,10 +92,14 @@
 
 .input_category {
   background-color: #444e6f;
+  width: 20px;
+  margin: auto 5px;
 }
 
 .input_theme {
   background-color: #49526f;
+  width: 20px;
+  margin: auto 5px;
 }
 
 .link_submit {
@@ -116,9 +109,17 @@
   margin: 6% auto 0;
   border: none;
   text-transform: uppercase;
-  background: linear-gradient(to right, #243f20 0%, #396031 100%);
+  background: coral;
   font-size: 17px;
   font-weight: 800;
   text-align: center;
   padding: 0 0 0 7px;
+}
+
+.label_input_theme {
+  line-height: 90px;
+}
+
+.label_input_category {
+  line-height: 90px;
 }
