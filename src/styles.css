@@ -1,3 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~normalize.css/normalize.css';
 @import "~reset-css";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.page__global {
+  background-image: linear-gradient(-25deg, #616161 0%, #96B7C4 100%);
+  width: 100vw;
+  height: 100vh;
+  font-size: 14px;
+  font-family: 'Playfair Display', serif;
+  --def: #96B7C4;
+  --inv: #fff;
+}
+
+.menu {
+  width: 100%;
+  flex: 1;
+}
+
+.menu_list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  position: relative;
+  padding: 1.4rem 4.2rem;
+  padding-right: 3.1rem;
+  font-size: 1.4rem;
+  color: var(--inv);
+  letter-spacing: 1.1rem;
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.link {
+  position: relative;
+  padding: 1.4rem 4.2rem;
+  padding-right: 3.1rem;
+  font-size: 1.4rem;
+  color: var(--inv);
+  letter-spacing: 1.1rem;
+  text-transform: uppercase;
+  transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn:before, .btn:after {
+  content: '';
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+}
+
+.link:before, .link:after {
+  content: '';
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+}
+
+.btn:hover {
+  color: var(--def);
+  transition-delay: .6s;
+}
+
+.btn:hover:before {
+  transition-delay: 0s;
+}
+
+.btn:hover:after {
+  background: var(--inv);
+  transition-delay: .4s;
+}
+
+.link:hover {
+  color: var(--def);
+  transition-delay: .6s;
+}
+
+.link:hover:before {
+  transition-delay: 0s;
+}
+
+.link:hover:after {
+  background: var(--inv);
+  transition-delay: .4s;
+}
+
+.from-middle:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 1px solid var(--inv);
+  border-left: 0;
+  border-right: 0;
+}
+
+.from-middle:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: var(--inv);
+}
+
+.from-middle:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.from-middle:hover:after {
+  top: 0;
+  height: 100%;
+}
+
+div {margin-bottom: 3rem;}
+div:last-child {margin-bottom: 0;}

@@ -26,9 +26,42 @@ export class GameComponent implements OnInit {
   finish;
   timeOfThisLatter;
   timeOfLastLatter: number;
-  speedNow = 270;
+  speedCar = 7;
+  speedOpponent = 5;
   positionCar = 0;
   positionOpponent = 0;
+  backgroundObjects = [
+    {
+      id: document.getElementById('mountains0'),
+      position: 0,
+      distance: 100
+    },
+    {
+      id: document.getElementById('mountains1'),
+      position: 0,
+      distance: 100
+    },
+    {
+      id: document.getElementById('treeContainer0'),
+      position: 0,
+      distance: 3
+    },
+    {
+      id: document.getElementById('treeContainer1'),
+      position: 0,
+      distance: 3
+    },
+    {
+      id: document.getElementById('grassContainer0'),
+      position: 0,
+      distance: 1
+    },
+    {
+      id: document.getElementById('grassContainer1'),
+      position: 0,
+      distance: 1
+    }
+  ];
   positionMountains = 0;
   arrayOfPositionByTree = [0, 0, 0, 0, 0, 0, 0];
   arrayOfPositionByGrass = [];
@@ -57,13 +90,21 @@ export class GameComponent implements OnInit {
       this.arrayOfGrassIds[i] = i;
       this.arrayOfPositionByGrass[i] = 0;
     }
+
+    document.getElementById('mountains1').style.left = `${screen.width}`;
+    document.getElementById('treeContainer1').style.left = `${screen.width}`;
+    document.getElementById('grassContainer1').style.left = `${screen.width}`;
+
   }
 
   checkLetter() {
     const span = document.getElementById(String(this.indexSpan));
     if ( this.letters[0].symbol[this.indexLetter] === this.typedLetter ) {
       this.timeOfThisLatter = Date.now();
-      this.speedNow += 800 / (this.timeOfThisLatter - this.timeOfLastLatter);
+      if (this.indexLetter === this.letters[0].symbol.length - 1) {
+        this.finish = this.timeOfThisLatter;
+      }
+      this.speedCar = 1000 / (this.timeOfThisLatter - this.timeOfLastLatter);
       this.timeOfLastLatter = this.timeOfThisLatter;
       this.letters[0].correct = true;
       this.indexLetter ++;
@@ -79,23 +120,26 @@ export class GameComponent implements OnInit {
 
   move() {
     this.checkPosition();
-    this.transformOfBlocks();
-    this.speedNow -= 0.003 * this.speedNow;
-    if (this.speedNow < 0) {
-      this.speedNow = 0;
+    if (this.finish || this.indexLetter === 0) {
+      this.speedCar -= 0.1;
+      if (this.speedCar < 0) {
+        this.speedCar = 0;
+        this.speedOpponent = 0;
+      }
     }
+    this.transformOfBlocks();
     requestAnimationFrame(() => this.move());
   }
 
   moveTree(i: number, position: number) {
     const tree = document.getElementById('tree' + i);
-    tree.style.transform = `translateX(${ position }px)`;
+    tree.style.transform = `translateX(${ Math.round(position) }px)`;
     const MAX_POSITION = 200 * (i + 1);
     if ( position < -MAX_POSITION ) {
       this.arrayOfPositionByTree[i] = screen.width;
       tree.style.left = -200 + 'px';
     } else {
-      const speed = Math.round(this.speedNow / 20);
+      const speed = Math.round(this.speedCar / 20);
       this.arrayOfPositionByTree[i] -= speed;
     }
   }
@@ -108,7 +152,7 @@ export class GameComponent implements OnInit {
       this.arrayOfPositionByGrass[i] = screen.width;
       grass.style.left = -120 + 'px';
     } else {
-      const speed = Math.round(this.speedNow / 10);
+      const speed = Math.round(this.speedCar / 10);
       this.arrayOfPositionByGrass[i] -= speed;
     }
   }
@@ -121,32 +165,36 @@ export class GameComponent implements OnInit {
       this.positionMountains = screen.width;
       mountain.style.left = -100 + 'px';
     } else {
-      const speed = Math.round(this.speedNow / 300);
+      const speed = Math.round(this.speedCar / 300);
       this.positionMountains -= speed;
     }
   }
 
   checkPosition() {
     const MAX_POSITION = screen.width / 3;
-    const speed = Math.round(this.speedNow / 10);
+    const speed = this.speedCar; // this may contain const for animation (now remove it)
+    this.speedOpponent = Math.random() * 5 + 5;
     if (this.positionCar > MAX_POSITION) {
-      this.moveMountains();
-      for (let index = 0; index < this.arrayOfGrassIds.length; index++) {
-        this.moveGrass(index, this.arrayOfPositionByGrass[index]);
-      }
-      for (let index = 0; index < 7; index++) {
-        this.moveTree(index, this.arrayOfPositionByTree[index]);
-      }
-      this.positionOpponent -= Math.floor(Math.random() * Math.floor(3));
+      // this.moveMountains();
+      // for (let index = 0; index < this.arrayOfGrassIds.length; index++) {
+      //   this.moveGrass(index, this.arrayOfPositionByGrass[index]);
+      // }
+      // for (let index = 0; index < 7; index++) {
+      //   this.moveTree(index, this.arrayOfPositionByTree[index]);
+      // }
+      this.positionOpponent += this.speedOpponent - speed;
     } else {
-      this.positionOpponent += Math.round(Math.random() * 10 + 55);
       this.positionCar += speed;
+      this.positionOpponent += this.speedOpponent;
     }
   }
 
   transformOfBlocks() {
-    document.getElementById('car').style.transform = `translateX(${ this.positionCar }px)`;
-    document.getElementById('carOpponent').style.transform = `translateX(${ this.positionOpponent }px)`;
+    this.backgroundObjects.forEach((object) => {
+      object.id.style.left = `${object.position}`;
+    });
+    document.getElementById('car').style.transform = `translateX(${ Math.round(this.positionCar) }px)`;
+    document.getElementById('carOpponent').style.transform = `translateX(${ Math.round(this.positionOpponent) }px)`;
   }
 
 }

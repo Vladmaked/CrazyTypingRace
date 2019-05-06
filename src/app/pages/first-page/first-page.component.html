@@ -2,12 +2,12 @@
   <div class="page__global_info">
     <nav class="menu">
       <ul class="menu_list">
-        <li><a routerLink="" class="link">About Us</a></li>
-        <li><a routerLink="" class="link">Log in</a></li>
+        <li><a routerLink="/about-us" class="link from-middle">About Us</a></li>
+<!--        <li><a routerLink="" class="link">Log in</a></li>-->
       </ul>
     </nav>
     <div class="btn-section">
-      <button *ngIf="!isRendered" class="btn__call-modal-window" (click)="onClickStart()">Start</button>
+      <button *ngIf="!isRendered" class="btn from-middle" (click)="onClickStart()">Start</button>
     </div>
     <div id="form" class="page__global_modal-window" *ngIf="isRendered">
       <form class="form" [formGroup]="gameSettingsForm">

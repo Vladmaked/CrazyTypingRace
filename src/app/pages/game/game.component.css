@@ -41,6 +41,7 @@
   width: 100vw;
   position: absolute;
   overflow-x: hidden;
+  left: 0;
 }
 
 .container_tree {
