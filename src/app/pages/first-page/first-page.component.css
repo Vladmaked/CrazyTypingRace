@@ -8,6 +8,7 @@
 
 .btn-section {
   flex: 2;
+  margin-top: 70px;
 }
 
 .page__global_modal-window {
@@ -20,7 +21,8 @@
   max-width: 560px;
   padding: 50px;
   justify-content: center;
-  background-color: #ffe58d;
+  background-color: #dddddd;
+  border-radius: 5px;
 }
 
 .inputs {
@@ -54,17 +56,30 @@
 
 .link_submit {
   display: block;
-  width: 196px;
+  width: 380px;
   height: 52px;
   margin: 6% auto 0;
   border: none;
   text-transform: uppercase;
-  background: coral;
+  background: #2d395b;
+  border-radius: 5px;
   font-size: 17px;
   font-weight: 800;
   text-align: center;
-  padding: 0 0 0 7px;
+  padding: 0 0 0 15px;
 }
+
+.form__category {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.form__theme {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .label_input_theme {
   line-height: 90px;
