@@ -8,7 +8,9 @@
   </nav>
 </header>
 <div class="container container_mountains">
-  <svg id="mountains0" class="mountains" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1281 451.1" preserveAspectRatio="none"><defs>
+  <svg [ngStyle]="{
+    'transform': 'translateX(${backgroundObjects[0].position})'
+  }" id="mountains0" class="mountains" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1281 451.1" preserveAspectRatio="none"><defs>
     <style>.mountain-right{fill:#283152;}.mountain-left{fill:#2e395b;}.grass{fill:#386031;}</style>
   </defs>
     <g id="Слой_2"><g id="Слой_3">
@@ -16,10 +18,10 @@
       <polygon class="mountain-left" points="281.76 6.96 772 451 0 451.1 281.76 6.96"></polygon></g>
     </g>
   </svg>
-  <svg id="mountains1" class="mountains mountains--plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1281 451.1" preserveAspectRatio="none"><defs>
+  <svg id="mountains1" class="mountains plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1281 451.1" preserveAspectRatio="none"><defs>
     <style>.mountain-right{fill:#283152;}.mountain-left{fill:#2e395b;}.grass{fill:#386031;}</style>
   </defs>
-    <g id="Слой_2"><g id="Слой_3">
+    <g><g>
       <polygon  class="mountain-right" points="619 441 1271 440.93 1054.09 0 619 441"></polygon>
       <polygon class="mountain-left" points="281.76 6.96 772 451 0 451.1 281.76 6.96"></polygon></g>
     </g>
@@ -209,7 +211,7 @@
 				</g>
 			</svg>
   </div>
-  <div id="treeContainer1" class="container_tree container_tree--plus">
+  <div id="treeContainer1" class="container_tree plus">
     <svg class="tree" version="1.1"
          xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -394,7 +396,7 @@
   <div id="grassContainer0" class="container_bug">
     <svg *ngFor="let item of arrayOfGrassIds" id="grass{{item}}" class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
   </div>
-  <div id="grassContainer1" class="container_bug container_bug--plus">
+  <div id="grassContainer1" class="container_bug plus">
     <svg *ngFor="let item of arrayOfGrassIds" id="grass{{item}}" class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
   </div>
 </div>
