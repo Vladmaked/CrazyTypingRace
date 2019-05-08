@@ -14,16 +14,22 @@
 }
 
 .menu_list__item {
+  color: #FFF;
   text-decoration: none;
   display: inline-block;
   padding: 15px 25px;
   text-align: center;
-  color: black;
   opacity: 0.7;
 }
 
 .menu_list__item--login {
   background-color: #ffff80;
+  height: 93px;
+  border-radius: 50%;
+  width: 93px;
+  text-align: center;
+  line-height: 61px;
+  color: #000;
 }
 
 .container {
