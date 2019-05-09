@@ -5,33 +5,34 @@
   </div>
   <div class="admin-form">
     <div class="admin-form__categoryAndThemeAddition">
-      <div class="admin-form__categoryAddition">
+      <div>
         <form [formGroup]="categoryAdditionForm" (ngSubmit)="onSubmitCategory()">
-          <label>Category
-            <input formControlName="category"></label>
-          <button type="submit">Save</button>
+          <fieldset class="admin-form__categoryAddition">
+            <legend>Adding category</legend>
+              <input class="form-input" formControlName="category" placeholder="Category">
+            <button class="form-btn" type="submit" title="Save"></button>
+          </fieldset>
         </form>
       </div>
-      <div class="admin-form__themeAddition">
+      <div>
         <form [formGroup]="themeAdditionForm" (ngSubmit)="onSubmitTheme()">
-          <label>Category
-            <input formControlName="category"></label>
-          <label>Theme
-            <input formControlName="theme"></label>
-          <button type="submit">Save</button>
+          <fieldset class="admin-form__themeAddition">
+            <legend>Adding theme</legend>
+              <input  class="form-input" formControlName="category" placeholder="Category">
+              <input class="form-input" formControlName="theme" placeholder="Theme">
+            <button class="form-btn" type="submit" title="Save"></button>
+          </fieldset>
         </form>
       </div>
     </div>
-      <div class="admin-form__textAddition">
-        <form class="admin-formText" [formGroup]="textAdditionForm" (ngSubmit)="onSubmitText()" novalidate>
-          <label>Category
-            <input formControlName="category"></label>
-          <label>Theme
-            <input formControlName="theme"></label>
-          <label>Body
-            <input formControlName="body"></label>
-          <button type="submit">Save</button>
-        </form>
-      </div>
+      <form [formGroup]="textAdditionForm" (ngSubmit)="onSubmitText()" novalidate>
+        <fieldset class="admin-form__textAddition">
+          <legend>Adding text </legend>
+            <input  class="form-input" formControlName="category" placeholder="Category">
+            <input  class="form-input" formControlName="theme" placeholder="Theme">
+            <textarea class="form-textarea" formControlName="body" placeholder="Body"></textarea>
+          <button class="form-btn" type="submit" title="Save"></button>
+        </fieldset>
+      </form>
   </div>
 </div>

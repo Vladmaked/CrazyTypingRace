@@ -13,6 +13,7 @@
   flex-direction: column;
   height: 100vh;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
   background-image: linear-gradient(-25deg, #283152 0%, #2e395b 100%);
 }
 
@@ -23,7 +24,7 @@
   text-transform: uppercase;
   font-size: 6vw;
   font-weight: bold;
-  margin: 7px;
+  margin: 13px;
   padding: 0;
 }
 
@@ -48,6 +49,7 @@
   letter-spacing: 1.1rem;
   text-transform: uppercase;
   cursor: pointer;
+  font-family: 'Raleway', sans-serif;
   user-select: none;
   border-radius: 5px;
 }

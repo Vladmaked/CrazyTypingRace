@@ -109,10 +109,10 @@ export class GameComponent implements OnInit {
       this.letters[0].correct = true;
       this.indexLetter ++;
       this.indexSpan ++;
-      span.style.backgroundColor = '#67ff65';
+      span.style.backgroundColor = '#0c5f0b';
       this.move();
     } else {
-      span.style.backgroundColor = '#8a0505';
+      span.style.backgroundColor = '#7f3535';
     }
   }
 
