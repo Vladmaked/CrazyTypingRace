@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, Injectable, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {HtmlService} from '../../html.service';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-game',
@@ -12,8 +13,14 @@ import {HtmlService} from '../../html.service';
 })
 
 export class GameComponent implements OnInit {
+  @ViewChild('car')
+  car: ElementRef;
+
+  @ViewChild('carOpponent')
+  carOpponent: ElementRef;
+
   @ViewChild('mountains0')
-  mountains0: SVGElement;
+  mountains0: ElementRef;
 
   @ViewChild('mountains1')
   mountains1: ElementRef;
@@ -56,8 +63,7 @@ export class GameComponent implements OnInit {
     this.checkLetter();
   }
 
-  constructor(private htmlService: HtmlService,
-              private render: Renderer2) {
+  constructor(private htmlService: HtmlService, private render: Renderer2) {
   }
 
   ngOnInit() {
@@ -76,33 +82,33 @@ export class GameComponent implements OnInit {
     this.backgroundObjects = [
       {
         id: this.mountains0,
-        position: -screen.width,
-        distance: 50
+        renderPosition: 0,
+        distance: 100
       },
       {
         id: this.mountains1,
-        position: screen.width,
-        distance: 50
+        renderPosition: screen.width,
+        distance: 100
       },
       {
         id: this.treeContainer0,
-        position: 1,
-        distance: 100
+        renderPosition: 1,
+        distance: 5
       },
       {
         id: this.treeContainer1,
-        position: screen.width,
-        distance: 100
+        renderPosition: screen.width,
+        distance: 5
       },
       {
         id: this.grassContainer0,
-        position: 1,
-        distance: 150
+        renderPosition: 1,
+        distance: 1
       },
       {
         id: this.grassContainer1,
-        position: screen.width,
-        distance: 150
+        renderPosition: screen.width,
+        distance: 1
       }
     ];
   }
@@ -145,9 +151,9 @@ export class GameComponent implements OnInit {
     this.speedOpponent = Math.random() * 5 + 5;
     if (this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
-        object.position -= speed;
-        if (object.position < -screen.width) {
-          object.position += screen.width;
+        object.renderPosition -= speed / object.distance;
+        if (object.renderPosition < -screen.width) {
+          object.renderPosition += screen.width * 2;
         }
       });
       this.positionOpponent += this.speedOpponent - speed;
@@ -159,11 +165,12 @@ export class GameComponent implements OnInit {
 
   transformOfBlocks() {
     this.backgroundObjects.forEach((object) => {
-      console.log(object);
-      this.render.setStyle(object.id.nativeElement, 'left', object.position);
+      object.id.nativeElement.style.left = Math.round(object.renderPosition) + 'px';
     });
-    document.getElementById('car').style.left = `(${ Math.round(this.positionCar) }px)`;
-    document.getElementById('carOpponent').style.left = `(${ Math.round(this.positionOpponent) }px)`;
+    console.log('car :   ' + this.positionCar + '\n' + 'opponent:  ' + this.positionOpponent);
+    const position = Math.round(this.positionCar);
+    document.getElementById('car').style.left = position + 'px';
+    document.getElementById('carOpponent').style.left = Math.round(this.positionOpponent) + 'px';
   }
 
 }
