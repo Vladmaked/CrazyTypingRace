@@ -38,7 +38,7 @@
   height: 65vh;
   width: 100vw;
   align-items: flex-end;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .container_tree,
@@ -107,6 +107,7 @@
   letter-spacing: 4px;
   color: rgb(15, 206, 208);
   text-align: justify;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .menu_list__item:hover, .menu_list__item:active {
