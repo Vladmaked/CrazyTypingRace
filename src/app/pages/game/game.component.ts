@@ -1,6 +1,5 @@
 import {Component, ElementRef, HostListener, Injectable, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {HtmlService} from '../../html.service';
-import {element} from 'protractor';
 
 @Component({
   selector: 'app-game',
@@ -56,7 +55,7 @@ export class GameComponent implements OnInit {
   positionOpponent = 0;
   backgroundObjects;
   arrayOfGrassIds = [];
-  arrayOfTreesIds =[];
+  arrayOfTreesIds = [];
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -64,7 +63,7 @@ export class GameComponent implements OnInit {
     this.checkLetter();
   }
 
-  constructor(private htmlService: HtmlService, private render: Renderer2) {
+  constructor(private htmlService: HtmlService) {
   }
 
   ngOnInit() {
@@ -78,11 +77,11 @@ export class GameComponent implements OnInit {
     this.start = Date.now();
     this.timeOfLastLatter = this.start;
     const elementWidthNumber: string = getComputedStyle(grass).width;
-    const coefficientForGrass = Math.round((screen.width / +elementWidthNumber.substring(0,5)) - 1);
+    const coefficientForGrass = Math.round((screen.width / +elementWidthNumber.substring(0, 5)) - 1);
     for (let i = 0; i < coefficientForGrass; i++) {
       this.arrayOfGrassIds[i] = i;
     }
-    for (let i = 0; i< 6; i++) {
+    for (let i = 0; i < 6; i++) {
       this.arrayOfTreesIds[i] = i;
     }
 
