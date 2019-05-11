@@ -1,0 +1,14 @@
+.about-us__title {
+  color: #FFF;
+  flex: 2;
+  font-size: 4vw;
+  max-height: 25vh;
+}
+
+.about-us__text {
+  flex: 3;
+  color: #FFF;
+  font-size: 2vw;
+  padding: 0 6vw;
+  line-height: normal;
+}

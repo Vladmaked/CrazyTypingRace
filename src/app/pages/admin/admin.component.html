@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header">
-    <h2 class="title">Hello my God! Welcome in admin page</h2>
+    <h2 class="title">Hello my God! Welcome to the admin page</h2>
     <p class="title title--sm">What do you want to create or add?</p>
   </div>
   <div class="admin-form">
@@ -8,7 +8,7 @@
       <div>
         <form [formGroup]="categoryAdditionForm" (ngSubmit)="onSubmitCategory()">
           <fieldset class="admin-form__categoryAddition">
-            <legend>Adding category</legend>
+            <legend>Creating category</legend>
               <input class="form-input" formControlName="category" placeholder="Category">
             <button class="form-btn" type="submit" title="Save"></button>
           </fieldset>

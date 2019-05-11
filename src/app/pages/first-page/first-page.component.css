@@ -8,21 +8,13 @@
 
 .btn-section {
   flex: 2;
-  margin-top: 70px;
+  margin-top: 30vh;
 }
 
 .page__global_modal-window {
   display: flex;
   position: absolute;
-  margin-top: 40vh;
-}
-
-.form {
-  max-width: 560px;
-  padding: 50px;
-  justify-content: center;
-  background-color: #dddddd;
-  border-radius: 5px;
+  margin-top: 30vh;
 }
 
 .inputs {
@@ -69,10 +61,38 @@
   padding: 0 0 0 15px;
 }
 
+.form {
+  min-width: 30vw;
+  max-width: 30vw;
+  padding: 5px 25px 25px 25px;
+  justify-content: center;
+  background-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+}
+
+.form__title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
 .form__category {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: -15px;
+  margin-left: -10px;
   justify-content: space-between;
-  padding-bottom: 20px;
+}
+
+.form__label{
+  width: 30%;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.form__text {
+  padding: 25px 0;
+  color: #2c2c2c;
 }
 
 .form__theme {

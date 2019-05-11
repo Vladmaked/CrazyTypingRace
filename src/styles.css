@@ -31,6 +31,7 @@
 .menu {
   width: 100%;
   flex: 1;
+  max-height: 10vh;
 }
 
 .menu_list {
@@ -43,10 +44,10 @@
 
 .btn {
   position: relative;
-  padding: 1.4rem 3.1rem 1.4rem 4.2rem;
-  font-size: 1.4rem;
+  padding: 1.0rem 2.1rem 1.0rem 3.2rem;
+  font-size: 2.0rem;
   color: #2e486b;
-  letter-spacing: 1.1rem;
+  letter-spacing: .8rem;
   text-transform: uppercase;
   cursor: pointer;
   font-family: 'Raleway', sans-serif;
@@ -64,7 +65,7 @@
   position: relative;
   font-size: 1.4rem;
   color: #FFF;
-  letter-spacing: 1.1rem;
+  letter-spacing: .8rem;
   text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
