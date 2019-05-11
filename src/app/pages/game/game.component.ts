@@ -1,6 +1,5 @@
 import {Component, ElementRef, HostListener, Injectable, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {HtmlService} from '../../html.service';
-import {element} from 'protractor';
 
 @Component({
   selector: 'app-game',
@@ -56,6 +55,7 @@ export class GameComponent implements OnInit {
   positionOpponent = 0;
   backgroundObjects;
   arrayOfGrassIds = [];
+  arrayOfTreesIds = [];
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -63,7 +63,7 @@ export class GameComponent implements OnInit {
     this.checkLetter();
   }
 
-  constructor(private htmlService: HtmlService, private render: Renderer2) {
+  constructor(private htmlService: HtmlService) {
   }
 
   ngOnInit() {
@@ -76,9 +76,15 @@ export class GameComponent implements OnInit {
     }
     this.start = Date.now();
     this.timeOfLastLatter = this.start;
-    for (let i = 0; i < 8; i++) {
+    const elementWidthNumber: string = getComputedStyle(grass).width;
+    const coefficientForGrass = Math.round((screen.width / +elementWidthNumber.substring(0, 5)) - 1);
+    for (let i = 0; i < coefficientForGrass; i++) {
       this.arrayOfGrassIds[i] = i;
     }
+    for (let i = 0; i < 6; i++) {
+      this.arrayOfTreesIds[i] = i;
+    }
+
     this.backgroundObjects = [
       {
         id: this.mountains0,
@@ -92,7 +98,7 @@ export class GameComponent implements OnInit {
       },
       {
         id: this.treeContainer0,
-        renderPosition: 1,
+        renderPosition: 0,
         distance: 5
       },
       {
@@ -102,7 +108,7 @@ export class GameComponent implements OnInit {
       },
       {
         id: this.grassContainer0,
-        renderPosition: 1,
+        renderPosition: 0,
         distance: 1
       },
       {
@@ -111,6 +117,7 @@ export class GameComponent implements OnInit {
         distance: 1
       }
     ];
+    this.move();
   }
 
   checkLetter() {
@@ -126,28 +133,34 @@ export class GameComponent implements OnInit {
       this.indexLetter ++;
       this.indexSpan ++;
       span.style.backgroundColor = '#0c5f0b';
-      this.move();
     } else {
       span.style.backgroundColor = '#7f3535';
+      this.slowdown(0.01);
     }
   }
 
   move() {
     this.checkPosition();
-    if (this.finish || this.indexLetter === 0) {
-      this.speedCar -= 0.1;
-      if (this.speedCar < 0) {
-        this.speedCar = 0;
-        this.speedOpponent = 0;
-      }
-    }
+    // if (this.indexLetter === 0 || this.finish) {
+    //   this.slowdown(0.001);
+    // }
+    this.slowdown(0.001);
     this.transformOfBlocks();
     requestAnimationFrame(() => this.move());
   }
 
+  slowdown(value: number) {
+    this.speedCar -= value;
+    if (this.speedCar < 0) {
+      this.speedCar = 0;
+      this.speedOpponent = 0;
+    }
+  }
+
   checkPosition() {
     const MAX_POSITION = screen.width / 3;
-    const speed = this.speedCar; // this may contain const for animation (now remove it)
+    const speed = this.speedCar;
+    // Math.log(this.speedCar + 3) * 5; // this may contain const for animation (now remove it)
     this.speedOpponent = Math.random() * 5 + 5;
     if (this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
@@ -167,7 +180,6 @@ export class GameComponent implements OnInit {
     this.backgroundObjects.forEach((object) => {
       object.id.nativeElement.style.left = Math.round(object.renderPosition) + 'px';
     });
-    console.log('car :   ' + this.positionCar + '\n' + 'opponent:  ' + this.positionOpponent);
     const position = Math.round(this.positionCar);
     document.getElementById('car').style.left = position + 'px';
     document.getElementById('carOpponent').style.left = Math.round(this.positionOpponent) + 'px';

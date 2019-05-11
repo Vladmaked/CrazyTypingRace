@@ -1,9 +1,9 @@
 <header class="header">
   <nav>
     <ul class="menu_list">
-      <li><a routerLink="/about-us" class="link">About Us</a></li>
-      <li><a class="menu_list__item menu_list__item--login" routerLink="">Log in</a></li>
-      <li><a class="link" routerLink="">Sign up</a></li>
+      <li><a class="menu_list__item" href="#">About us</a></li>
+      <li><a class="menu_list__item menu_list__item--login" href="#">Login</a></li>
+      <li><a class="menu_list__item" href="#">Sign up</a></li>
     </ul>
   </nav>
 </header>
@@ -28,7 +28,7 @@
 <div class="container">
   <div class="container_grass"></div>
   <div #treeContainer0 id="treeContainer0" class="container_tree">
-    <svg class="tree" version="1.1"
+    <svg *ngFor="let id of arrayOfTreesIds" id="tree{{id}}" class="tree" version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px" y="0px" viewBox="0 0 218 524.2"
@@ -54,160 +54,6 @@
       <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
     </g>
     </svg>
-    <svg class="tree" version="1.1"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         x="0px" y="0px" viewBox="0 0 218 524.2"
-         style="enable-background:new 0 0 218 524.2;"
-         xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:url(#SVGID_1_);}
-          .light{fill:#654E9C;}
-          .dark{fill:#5C3E94;}
-				</style>
-      <title>Ресурс 7</title>
-      <g>
-  					<lineargradient gradientunits="userSpaceOnUse" x1="133.2668" y1="730.2366" x2="81.0368" y2="778.9766" gradienttransform="matrix(1 0 0 1 0 -256)">
-  						<stop  offset="0" style="stop-color:#2D1D2A"/>
-              <stop  offset="1" style="stop-color:#852364"/>
-  					</lineargradient>
-        <rect x="104.1" y="469.2" class="st0" width="10.2" height="54.9"/>
-        <polygon class="light" points="107.9,0 109,474.6 -1.8,474.6"/>
-        <polygon class="dark" points="109,0 109,474.6 218,474.6"/>
-        <polygon class="dark" points="109,477.8 109,10.4 48,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 170,477.4"/>
-        <polygon class="dark" points="109,477.8 109,10.4 162.2,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
-				</g>
-			</svg>
-    <svg class="tree" version="1.1" xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 218 524.2"
-         style="enable-background:new 0 0 218 524.2"
-         xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:url(#SVGID_1_);}
-          .light{fill:#654E9C;}
-          .dark{fill:#5C3E94;}
-				</style>
-      <title>Ресурс 7</title>
-      <g id="Слой_2_1_">
-					<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="133.2668" y1="730.2366" x2="81.0368" y2="778.9766" gradientTransform="matrix(1 0 0 1 0 -256)">
-						<stop  offset="0" style="stop-color:#2D1D2A"/>
-            <stop  offset="1" style="stop-color:#852364"/>
-					</linearGradient>
-        <rect x="104.1" y="469.2" class="st0" width="10.2" height="54.9"/>
-        <polygon class="light" points="107.9,0 109,474.6 -1.8,474.6"/>
-        <polygon class="dark" points="109,0 109,474.6 218,474.6"/>
-        <polygon class="dark" points="109,477.8 109,10.4 48,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 170,477.4"/>
-        <polygon class="dark" points="109,477.8 109,10.4 162.2,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
-				</g>
-			</svg>
-    <svg class="tree" version="1.1"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         x="0px" y="0px" viewBox="0 0 218 524.2"
-         style="enable-background:new 0 0 218 524.2;"
-         xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:url(#SVGID_1_);}
-          .light{fill:#654E9C;}
-          .dark{fill:#5C3E94;}
-				</style>
-      <title>Ресурс 7</title>
-      <g>
-  					<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="133.2668" y1="730.2366" x2="81.0368" y2="778.9766" gradientTransform="matrix(1 0 0 1 0 -256)">
-  						<stop  offset="0" style="stop-color:#2D1D2A"/>
-              <stop  offset="1" style="stop-color:#852364"/>
-  					</linearGradient>
-        <rect x="104.1" y="469.2" class="st0" width="10.2" height="54.9"/>
-        <polygon class="light" points="107.9,0 109,474.6 -1.8,474.6"/>
-        <polygon class="dark" points="109,0 109,474.6 218,474.6"/>
-        <polygon class="dark" points="109,477.8 109,10.4 48,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 170,477.4"/>
-        <polygon class="dark" points="109,477.8 109,10.4 162.2,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
-				</g>
-			</svg>
-    <svg class="tree" version="1.1"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         x="0px" y="0px" viewBox="0 0 218 524.2"
-         style="enable-background:new 0 0 218 524.2;"
-         xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:url(#SVGID_1_);}
-          .light{fill:#654E9C;}
-          .dark{fill:#5C3E94;}
-				</style>
-      <title>Ресурс 7</title>
-      <g>
-  					<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="133.2668" y1="730.2366" x2="81.0368" y2="778.9766" gradientTransform="matrix(1 0 0 1 0 -256)">
-  						<stop  offset="0" style="stop-color:#2D1D2A"/>
-              <stop  offset="1" style="stop-color:#852364"/>
-  					</linearGradient>
-        <rect x="104.1" y="469.2" class="st0" width="10.2" height="54.9"/>
-        <polygon class="light" points="107.9,0 109,474.6 -1.8,474.6"/>
-        <polygon class="dark" points="109,0 109,474.6 218,474.6"/>
-        <polygon class="dark" points="109,477.8 109,10.4 48,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 170,477.4"/>
-        <polygon class="dark" points="109,477.8 109,10.4 162.2,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
-				</g>
-			</svg>
-    <svg class="tree" version="1.1"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         x="0px" y="0px" viewBox="0 0 218 524.2"
-         style="enable-background:new 0 0 218 524.2;"
-         xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:url(#SVGID_1_);}
-          .light{fill:#654E9C;}
-          .dark{fill:#5C3E94;}
-				</style>
-      <title>Ресурс 7</title>
-      <g>
-  					<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="133.2668" y1="730.2366" x2="81.0368" y2="778.9766" gradientTransform="matrix(1 0 0 1 0 -256)">
-  						<stop  offset="0" style="stop-color:#2D1D2A"/>
-              <stop  offset="1" style="stop-color:#852364"/>
-  					</linearGradient>
-        <rect x="104.1" y="469.2" class="st0" width="10.2" height="54.9"/>
-        <polygon class="light" points="107.9,0 109,474.6 -1.8,474.6"/>
-        <polygon class="dark" points="109,0 109,474.6 218,474.6"/>
-        <polygon class="dark" points="109,477.8 109,10.4 48,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 170,477.4"/>
-        <polygon class="dark" points="109,477.8 109,10.4 162.2,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
-				</g>
-			</svg>
-    <svg class="tree" version="1.1"
-         xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         x="0px" y="0px" viewBox="0 0 218 524.2"
-         style="enable-background:new 0 0 218 524.2;"
-         xml:space="preserve">
-				<style type="text/css">
-					.st0{fill:url(#SVGID_1_);}
-          .light{fill:#654E9C;}
-          .dark{fill:#5C3E94;}
-				</style>
-      <title>Ресурс 7</title>
-      <g>
-  					<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="133.2668" y1="730.2366" x2="81.0368" y2="778.9766" gradientTransform="matrix(1 0 0 1 0 -256)">
-  						<stop  offset="0" style="stop-color:#2D1D2A"/>
-              <stop  offset="1" style="stop-color:#852364"/>
-  					</linearGradient>
-        <rect x="104.1" y="469.2" class="st0" width="10.2" height="54.9"/>
-        <polygon class="light" points="107.9,0 109,474.6 -1.8,474.6"/>
-        <polygon class="dark" points="109,0 109,474.6 218,474.6"/>
-        <polygon class="dark" points="109,477.8 109,10.4 48,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 170,477.4"/>
-        <polygon class="dark" points="109,477.8 109,10.4 162.2,477.4"/>
-        <polygon class="light" points="109,477.8 109,10.4 55.8,477.4"/>
-				</g>
-			</svg>
   </div>
   <div #treeContainer1 id="treeContainer1" class="container_tree plus">
     <svg class="tree" version="1.1"
@@ -392,10 +238,12 @@
 			</svg>
   </div>
   <div #grassContainer0 id="grassContainer0" class="container_bug">
-    <svg *ngFor="let item of arrayOfGrassIds" id="grass{{item}}" class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
+      <svg id="grass" class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
+      <svg *ngFor="let item of arrayOfGrassIds"class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
   </div>
   <div #grassContainer1 id="grassContainer1" class="container_bug plus">
-    <svg *ngFor="let item of arrayOfGrassIds" id="grass{{item}}" class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
+      <svg class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
+    <svg *ngFor="let item of arrayOfGrassIds" class="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.5 24.5"><defs><style>.cls-1{fill:#243f20;}</style></defs><title>Ресурс 4</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_10" data-name="Слой 10"><polygon class="grass_polygon" points="0 24.5 12.56 0 25.13 24.5 0 24.5"/><polygon class="grass_polygon" points="15.07 24.5 27.64 0 40.2 24.5 15.07 24.5"/><polygon class="grass_polygon" points="30.15 24.5 42.71 0 55.27 24.5 30.15 24.5"/><polygon class="grass_polygon" points="45.23 24.5 57.79 0 70.35 24.5 45.23 24.5"/><polygon class="grass_polygon" points="60.3 24.5 72.86 0 85.42 24.5 60.3 24.5"/><polygon class="grass_polygon" points="75.38 24.5 87.94 0 100.5 24.5 75.38 24.5"/></g></g></svg>
   </div>
 </div>
 <div class="container container_text">

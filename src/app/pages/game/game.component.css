@@ -1,5 +1,5 @@
 .header {
-  height: 10vh;
+  height: 14vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,27 +15,29 @@
 
 .menu_list__item {
   color: #FFF;
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px 25px;
-  text-align: center;
   opacity: 0.7;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-decoration: none;
 }
 
 .menu_list__item--login {
   background-color: #ffff80;
-  height: 93px;
+  height: 5rem;
+  width: 5rem;
   border-radius: 50%;
-  width: 93px;
-  text-align: center;
-  line-height: 61px;
   color: #000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .container {
   position: absolute;
   display: flex;
-  height: 73vh;
+  height: 69vh;
   width: 100vw;
   align-items: flex-end;
   overflow: hidden;
@@ -68,6 +70,7 @@
   height: 3%;
   align-self: flex-end;
   display: flex;
+  justify-content: center;
 }
 
 .plus {
@@ -87,10 +90,6 @@
   fill: #243F20;
 }
 
-.grass {
-  width: 100px;
-}
-
 /* . . . */
 
 .container_mountains {
@@ -107,12 +106,13 @@
 .text {
   margin: auto;
   display: block;
-  width: 48%;
-  font-size: 22px;
-  letter-spacing: 4px;
+  width: 60%;
   color: rgb(195, 191, 116);
   text-align: justify;
   font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  line-height: 25px;
+  font-weight: 500;
 }
 
 .menu_list__item:hover, .menu_list__item:active {
@@ -150,9 +150,9 @@
   position: fixed;
   padding-left: 10px;
   height: 13%;
-  margin-top: -70px;
+  margin-top: -39px;
 }
 
 .car--opponent {
-  margin-top: -79px;
+  margin-top: -28px;
 }
