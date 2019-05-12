@@ -76,8 +76,9 @@ export class GameComponent implements OnInit {
     }
     this.start = Date.now();
     this.timeOfLastLatter = this.start;
-    const elementWidthNumber: string = getComputedStyle(grass).width;
-    const coefficientForGrass = Math.round((screen.width / +elementWidthNumber.substring(0, 5)) - 1);
+    let elementGrass = document.getElementById('grass');
+    const elementWidth: string = getComputedStyle(elementGrass).width;
+    const coefficientForGrass = Math.round(screen.width / +elementWidth.substring(0, 5)) - 1;
     for (let i = 0; i < coefficientForGrass; i++) {
       this.arrayOfGrassIds[i] = i;
     }
