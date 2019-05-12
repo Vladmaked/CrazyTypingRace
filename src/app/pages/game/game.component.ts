@@ -142,10 +142,13 @@ export class GameComponent implements OnInit {
 
   move() {
     this.checkPosition();
-    // if (this.indexLetter === 0 || this.finish) {
-    //   this.slowdown(0.001);
-    // }
-    this.slowdown(0.001);
+    if (this.indexLetter === 0) {
+      this.slowdown(0.03);
+    } else if (this.finish) {
+      this.slowdown(0.001);
+    } else {
+      this.slowdown(0.05);
+    }
     this.transformOfBlocks();
     requestAnimationFrame(() => this.move());
   }
@@ -161,6 +164,12 @@ export class GameComponent implements OnInit {
   checkPosition() {
     const MAX_POSITION = screen.width / 3;
     const speed = this.speedCar;
+    /* let speed;
+    if (this.speedCar > 1) {
+      speed = Math.pow(this.speedCar, 0.75);
+    } else {
+      speed = this.speedCar;
+    } */
     // Math.log(this.speedCar + 3) * 5; // this may contain const for animation (now remove it)
     this.speedOpponent = Math.random() * 5 + 5;
     if (this.positionCar > MAX_POSITION) {
