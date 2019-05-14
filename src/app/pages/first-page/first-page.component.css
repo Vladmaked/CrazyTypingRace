@@ -85,21 +85,28 @@
 }
 
 .form__label{
-  width: 30%;
+  width: calc(100%/3 - 10px);
   margin-left: 10px;
   margin-top: 15px;
 }
 
-.form__text {
+.form__theme__title {
   padding: 25px 0;
   color: #2c2c2c;
 }
 
 .form__theme {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
+.form__theme__input {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -15px;
+  margin-left: -10px;
+  justify-content: space-between;
+}
 
 .label_input_theme {
   line-height: 90px;

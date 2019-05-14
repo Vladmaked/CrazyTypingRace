@@ -149,10 +149,11 @@
 .car {
   position: fixed;
   padding-left: 10px;
-  height: 13%;
-  margin-top: -39px;
+  height: 12%;
+  margin-top: -55px;
 }
 
 .car--opponent {
-  margin-top: -28px;
+  margin-top: -52px;
+  height: 13.5%;
 }

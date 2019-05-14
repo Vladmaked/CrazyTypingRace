@@ -12,7 +12,7 @@
     <div id="form" class="page__global_modal-window" *ngIf="isRendered">
       <form class="form" [formGroup]="gameSettingsForm">
         <h3 class="form__title">Game settings</h3>
-        <p class="form__text">Choose text category:</p>
+        <p class="form__theme__title">Choose text category:</p>
         <div class="form__category">
           <label class="form__label" *ngFor="let category of htmlService.categories" >
             <input type="radio" formControlName="category" value="{{category.category}}" (click)="onCategorySelect(this.category.category)" name="category" >
@@ -20,11 +20,13 @@
           </label>
         </div>
         <div class="form__theme">
-          <label *ngFor="let theme of htmlService.themes">
-            <p class="form__text">Choose text subject:</p>
-            <input type="radio" formControlName="theme" value="{{theme.theme}}" (click)="onThemeSelect(this.theme.theme)" name="theme">
-            {{theme.theme}}
-          </label>
+          <p class="form__theme__title">Choose text subject:</p>
+          <div class="form__theme__input">
+            <label class="form__label" *ngFor="let theme of htmlService.themes">
+              <input type="radio" formControlName="theme" value="{{theme.theme}}" (click)="onThemeSelect(this.theme.theme)" name="theme">
+              {{theme.theme}}
+            </label>
+          </div>
         </div>
         <input routerLink="/game" class="link link_submit text-submit" type="submit" (click)="onClickStartToPlay()" value="Start to play" >
       </form>

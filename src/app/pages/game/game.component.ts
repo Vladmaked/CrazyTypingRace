@@ -145,6 +145,7 @@ export class GameComponent implements OnInit {
     if (this.indexLetter === 0) {
       this.slowdown(0.03);
     } else if (this.finish) {
+      this.speedCar *= 1.05;
       this.slowdown(0.001);
     } else {
       this.slowdown(0.02);
@@ -171,7 +172,7 @@ export class GameComponent implements OnInit {
       speed = 5 * this.speedCar;
     }
     // Math.log(this.speedCar + 3) * 5; // this may contain const for animation (now remove it)
-    this.speedOpponent = Math.random() * 5 + 5;
+    this.speedOpponent = this.speedCar + (Math.random() * - 5 + 10);
     if (!this.finish && this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
         object.renderPosition -= speed / object.distance;

@@ -25,27 +25,27 @@
   font-size: 1.5vw;
  }
 
-.admin-form__textAddition {
+.admin-form__text-addition {
   display: flex;
   flex-direction: column;
   width: 36vw;
   padding: 23px;
 }
 
-.admin-form__themeAddition {
+.admin-form__theme-addition {
   display: flex;
   flex-direction: column;
   padding: 23px;
   margin-top: 50px;
 }
 
-.admin-form__categoryAddition{
+.admin-form__category-addition{
   display: flex;
   padding: 23px;
   flex-direction: column;
 }
 
-.admin-form__categoryAndThemeAddition{
+.admin-form__category-and-theme-addition{
   width: 36vw;
 }
 
