@@ -112,8 +112,14 @@
   position: absolute;
   margin-top: 15vh;
 }
+.start-timer__title {
+  text-align: center;
+  color: #FFF;
+  font-size: 10vh ;
+}
 
 .timer {
+  text-align: center;
   font-size: 30vw;
   color: #FFF;
 }

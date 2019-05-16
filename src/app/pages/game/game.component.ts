@@ -149,7 +149,7 @@ export class GameComponent implements OnInit {
       this.slowdown(0.03);
     } else if (this.finish) {
       this.speedCar *= 1.05;
-      this.slowdown(0.001);
+      this.speedOpponent *= 1.05;
     } else {
       this.slowdown(0.02);
     }
@@ -191,6 +191,7 @@ export class GameComponent implements OnInit {
     if (this.htmlService.isOnline) {
       if (this.htmlService.dataParsedOnService.speed !== undefined) {
         this.speedOpponent = this.htmlService.dataParsedOnService.speed;
+        this.htmlService.dataParsedOnService.speed = undefined;
       }
     } else {
       this.speedOpponent = (Math.random() * -5 + 10);

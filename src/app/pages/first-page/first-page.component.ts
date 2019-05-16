@@ -20,6 +20,7 @@ export class FirstPageComponent implements OnInit {
   myClientID: any;
   obj: any;
   timer: any;
+  startTimerTitle = 'Waiting for an opponent...';
 
   private socket$: any;
 
@@ -91,6 +92,7 @@ export class FirstPageComponent implements OnInit {
       if (this.dataParsed.timeout === 15) {
         this.htmlService.isOnline = true;
         clearInterval(this.idInterval);
+        this.startTimerTitle = 'Start in:';
         this.isConnected = true;
       }
       this.timer = this.dataParsed.timeout;
