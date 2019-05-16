@@ -7,9 +7,9 @@
       </ul>
     </nav>
     <div class="btn-section">
-      <button *ngIf="!isRendered" class="btn" (click)="onClickStart()">Start!</button>
+      <button *ngIf="isRenderedStart" class="btn" (click)="onClickStart()">Start!</button>
     </div>
-    <div id="form" class="page__global_modal-window" *ngIf="isRendered">
+    <div id="form" class="page__global_modal-window" *ngIf="isRenderedSet">
       <form class="form" [formGroup]="gameSettingsForm">
         <h3 class="form__title">Game settings</h3>
         <p class="form__theme__title">Choose text category:</p>
@@ -23,13 +23,17 @@
           <p class="form__theme__title">Choose text subject:</p>
           <div class="form__theme__input">
             <label class="form__label" *ngFor="let theme of htmlService.themes">
-              <input type="radio" formControlName="theme" value="{{theme.theme}}" (click)="onThemeSelect(this.theme.theme)" name="theme">
+              <input type="radio" formControlName="theme" value="{{theme.theme}}" (click)="onThemeSelect(this.theme.theme, this.theme.idtheme)" name="theme">
               {{theme.theme}}
             </label>
           </div>
         </div>
-        <input routerLink="/game" class="link link_submit text-submit" type="submit" (click)="onClickStartToPlay()" value="Start to play" >
+        <input class="link link_submit text-submit" type="submit" (click)="onClickStartToPlay()" value="Start to play" >
       </form>
+    </div>
+    <div class="start-timer">
+      <p  class="timer" *ngIf="this.isConnected && isRenderedTimer">{{this.timer}}</p>
+<!--      <p  class="timer" *ngIf="this.isConnected && this.dataParsed.connected">{{this.dataParsed.timeout}}</p>-->
     </div>
   </div>
 

@@ -1,4 +1,4 @@
-import {Injectable, Output} from '@angular/core';
+import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment.prod';
 
@@ -16,15 +16,18 @@ export class HtmlService {
   categoryOnService = '';
   themeOnService = '';
   textOnService: any;
+  IDtheme: number;
+  dataParsedOnService: any;
+  socketOnService: any;
+  myIDOnService: any;
+  isOnline = false;
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient) { }
 
   getCategory() {
     return this.http.get(this.api.apiUrl + 'api/v1/categories')
       .subscribe((categories) => {
         this.categories = categories;
-        // console.log('getCategory() this.categories: ', this.categories);
-        // console.log('getCategory() this.categories[0].category: ', this.categories[0].category);
       });
   }
 
@@ -32,8 +35,6 @@ export class HtmlService {
     return this.http.get(this.api.apiUrl + 'api/v1/themes?category=' + categoryName)
       .subscribe((themes) => {
         this.themes = themes;
-        // console.log('getTheme(themeName) this.themes[0].theme: ', this.themes[0].theme);
-        // console.log('getTheme(categoryName) this.categories[0].category: ', this.categories[0].category);
       });
   }
 
@@ -96,10 +97,6 @@ export class HtmlService {
         }
       );
   }
-
-  // getRandomText(category: string, theme: string) {
-  //   return this.http.get(this.api.apiUrl + '/db/textObj/?category=' + category + '&theme=' + theme).toPromise();
-  // }
 
 }
 // TODO methods for login:

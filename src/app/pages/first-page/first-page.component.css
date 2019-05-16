@@ -62,7 +62,7 @@
 }
 
 .form {
-  min-width: 30vw;
+  min-width: 500px;;
   max-width: 30vw;
   padding: 5px 25px 25px 25px;
   justify-content: center;
@@ -106,6 +106,16 @@
   margin-top: -15px;
   margin-left: -10px;
   justify-content: space-between;
+}
+
+.start-timer {
+  position: absolute;
+  margin-top: 15vh;
+}
+
+.timer {
+  font-size: 30vw;
+  color: #FFF;
 }
 
 .label_input_theme {

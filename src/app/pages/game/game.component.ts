@@ -1,5 +1,6 @@
-import {Component, ElementRef, HostListener, Injectable, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Injectable, OnInit, ViewChild} from '@angular/core';
 import {HtmlService} from '../../html.service';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-game',
@@ -50,7 +51,7 @@ export class GameComponent implements OnInit {
   timeOfThisLatter: number;
   timeOfLastLatter: number;
   speedCar = 7;
-  speedOpponent = 5;
+  speedOpponent = 7;
   positionCar = 0;
   positionOpponent = 0;
   backgroundObjects;
@@ -63,10 +64,10 @@ export class GameComponent implements OnInit {
     this.checkLetter();
   }
 
-  constructor(private htmlService: HtmlService) {
-  }
+  constructor(private htmlService: HtmlService) {  }
 
   ngOnInit() {
+    console.log('this.first.dataParsed: ', this.htmlService.dataParsedOnService);
     for (let i = 0; i < this.letters[0].symbol.length; i++) {
       const child = document.createElement('span');
       child.innerText = this.letters[0].symbol[i];
@@ -129,6 +130,8 @@ export class GameComponent implements OnInit {
         this.finish = this.timeOfThisLatter;
       }
       this.speedCar = 1000 / (this.timeOfThisLatter - this.timeOfLastLatter);
+      this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, speed: this.speedCar}));
+      console.log('socketOnService.send: ', this.htmlService.myIDOnService, +  this.speedCar);
       this.timeOfLastLatter = this.timeOfThisLatter;
       this.letters[0].correct = true;
       this.indexLetter ++;
@@ -171,8 +174,19 @@ export class GameComponent implements OnInit {
     } else {
       speed = 5 * this.speedCar;
     }
-    // Math.log(this.speedCar + 3) * 5; // this may contain const for animation (now remove it)
-    this.speedOpponent = this.speedCar + (Math.random() * - 5 + 10);
+    // if (this.htmlService.dataParsedOnService.speed) {
+    //   console.log('this.htmlService.dataParsedOnService.speed: ', this.htmlService.dataParsedOnService.speed);
+    //   this.speedOpponent = this.htmlService.dataParsedOnService.speed;
+    // } else {
+    // }
+    if (this.htmlService.isOnline) {
+      if (this.htmlService.dataParsedOnService.speed !== undefined) {
+        this.speedOpponent = this.htmlService.dataParsedOnService.speed;
+      }
+    } else {
+      this.speedOpponent = (Math.random() * -5 + 10);
+    }
+    // console.log('randomthis.speedOpponent: ', this.speedOpponent);
     if (!this.finish && this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
         object.renderPosition -= speed / object.distance;
