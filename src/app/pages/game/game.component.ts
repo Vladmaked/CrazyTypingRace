@@ -161,6 +161,9 @@ export class GameComponent implements OnInit {
     this.speedCar -= value;
     if (this.speedCar < 0) {
       this.speedCar = 0;
+    }
+    this.speedOpponent -= value;
+    if (this.speedOpponent < 0) {
       this.speedOpponent = 0;
     }
   }
@@ -173,6 +176,12 @@ export class GameComponent implements OnInit {
       speed = Math.pow(5 * this.speedCar, 0.75);
     } else {
       speed = 5 * this.speedCar;
+    }
+    let speedOpponent;
+    if (this.speedOpponent > 1) {
+      speedOpponent = Math.pow(5 * this.speedOpponent, 0.75);
+    } else {
+      speedOpponent = 5 * this.speedOpponent;
     }
     // if (this.htmlService.dataParsedOnService.speed) {
     //   console.log('this.htmlService.dataParsedOnService.speed: ', this.htmlService.dataParsedOnService.speed);
@@ -194,10 +203,10 @@ export class GameComponent implements OnInit {
           object.renderPosition += screen.width * 2;
         }
       });
-      this.positionOpponent += this.speedOpponent - speed;
+      this.positionOpponent += speedOpponent - speed;
     } else {
       this.positionCar += speed;
-      this.positionOpponent += this.speedOpponent;
+      this.positionOpponent += speedOpponent;
     }
   }
 
