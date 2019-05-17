@@ -7,7 +7,7 @@
       </ul>
     </nav>
     <div class="btn-section">
-      <button *ngIf="isRenderedStart" class="btn" (click)="onClickStart()">Start!</button>
+      <button *ngIf="isRenderedStart" class="btn btn--start" (click)="onClickStart()">Start!</button>
     </div>
     <div id="form" class="page__global_modal-window" *ngIf="isRenderedSet">
       <form class="form" [formGroup]="gameSettingsForm">

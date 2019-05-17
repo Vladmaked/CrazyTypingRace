@@ -1,6 +1,5 @@
 import {Component, ElementRef, HostListener, Injectable, OnInit, ViewChild} from '@angular/core';
 import {HtmlService} from '../../html.service';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-game',
@@ -67,7 +66,6 @@ export class GameComponent implements OnInit {
   constructor(private htmlService: HtmlService) {  }
 
   ngOnInit() {
-    console.log('this.first.dataParsed: ', this.htmlService.dataParsedOnService);
     for (let i = 0; i < this.letters[0].symbol.length; i++) {
       const child = document.createElement('span');
       child.innerText = this.letters[0].symbol[i];
@@ -131,14 +129,13 @@ export class GameComponent implements OnInit {
       }
       this.speedCar = 1000 / (this.timeOfThisLatter - this.timeOfLastLatter);
       this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, speed: this.speedCar}));
-      console.log('socketOnService.send: ', this.htmlService.myIDOnService, +  this.speedCar);
       this.timeOfLastLatter = this.timeOfThisLatter;
       this.letters[0].correct = true;
       this.indexLetter ++;
       this.indexSpan ++;
-      span.style.backgroundColor = '#0c5f0b';
+      span.style.display = 'none';
     } else {
-      span.style.backgroundColor = '#7f3535';
+      span.style.backgroundColor = '#500000';
       this.slowdown(0.01);
     }
   }
@@ -150,6 +147,7 @@ export class GameComponent implements OnInit {
     } else if (this.finish) {
       this.speedCar *= 1.05;
       this.speedOpponent *= 1.05;
+      this.htmlService.isRenderedFinish = true;
     } else {
       this.slowdown(0.02);
     }
@@ -170,7 +168,6 @@ export class GameComponent implements OnInit {
 
   checkPosition() {
     const MAX_POSITION = screen.width / 3;
-    // const speed = this.speedCar;
     let speed;
     if (this.speedCar > 1) {
       speed = Math.pow(5 * this.speedCar, 0.75);
@@ -183,11 +180,6 @@ export class GameComponent implements OnInit {
     } else {
       speedOpponent = 5 * this.speedOpponent;
     }
-    // if (this.htmlService.dataParsedOnService.speed) {
-    //   console.log('this.htmlService.dataParsedOnService.speed: ', this.htmlService.dataParsedOnService.speed);
-    //   this.speedOpponent = this.htmlService.dataParsedOnService.speed;
-    // } else {
-    // }
     if (this.htmlService.isOnline) {
       if (this.htmlService.dataParsedOnService.speed !== undefined) {
         this.speedOpponent = this.htmlService.dataParsedOnService.speed;
@@ -196,7 +188,6 @@ export class GameComponent implements OnInit {
     } else {
       this.speedOpponent = (Math.random() * -5 + 10);
     }
-    // console.log('randomthis.speedOpponent: ', this.speedOpponent);
     if (!this.finish && this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
         object.renderPosition -= speed / object.distance;

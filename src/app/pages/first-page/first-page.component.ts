@@ -65,7 +65,6 @@ export class FirstPageComponent implements OnInit {
   createSocket() {
   this.socket$ = new WebSocket('wss://crazy-typing-race-backend.herokuapp.com:443');
   this.htmlService.socketOnService = this.socket$;
-  // this.socket$.onopen = () => ;
   this.socket$.onmessage = ({data}) => {
     console.log('data:', data);
     try {
@@ -76,7 +75,6 @@ export class FirstPageComponent implements OnInit {
         this.obj = {connect: true,  IDtheme: this.htmlService.IDtheme, ID: this.myClientID};
         this.socket$.send(JSON.stringify(this.obj, null, 1, ));
         this.htmlService.myIDOnService = this.myClientID;
-        console.log('this.dataParsed:', this.dataParsed);
       }
     } catch (err) {
       console.error(err);

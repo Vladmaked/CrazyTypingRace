@@ -21,6 +21,7 @@ export class HtmlService {
   socketOnService: any;
   myIDOnService: any;
   isOnline = false;
+  isRenderedFinish = false;
 
   constructor( private http: HttpClient) { }
 

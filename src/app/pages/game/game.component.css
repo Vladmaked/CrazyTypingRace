@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #38425d;
+  background-color: #213a7d;
 }
 
 .menu_list {
@@ -22,7 +22,7 @@
 }
 
 .menu_list__item--login {
-  background-color: #ffff80;
+  background-color: #00BFFF;
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
@@ -32,6 +32,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+  box-shadow: 0px 0px 5px 8px #3ee4ff;
 }
 
 .container {
@@ -41,6 +42,24 @@
   width: 100vw;
   align-items: flex-end;
   overflow: hidden;
+}
+
+
+.container__finish {
+  width: 50vw;
+  height: 50vh;
+  margin-left: 27vw;
+}
+
+.container__finish__text {
+  text-align: center;
+  font-size: 7vw;
+  color: rgb(0, 191, 255);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  vertical-align: middle;
+  line-height: 40vh;
+  margin: auto;
 }
 
 .container_tree,
@@ -63,7 +82,7 @@
 .container_grass {
   width: 100%;
   height: 5%;
-  background-color: #386031;
+  background-color: #0eab68;
 }
 
 .container_bug {
@@ -93,7 +112,7 @@
 /* . . . */
 
 .container_mountains {
-  background-color: #38425d;
+  background-color: #213a7d;
 }
 
 .mountains {
@@ -107,16 +126,36 @@
   margin: auto;
   display: block;
   width: 60%;
-  color: rgb(195, 191, 116);
+  color: rgb(0, 191, 255);
   text-align: justify;
+  font-size: 3vh;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 3px;
-  line-height: 25px;
+  line-height: 40px;
   font-weight: 500;
 }
 
+.car-1 {
+  fill: #0d214b;
+  stroke: #0c1f45;
+  stroke-width: 2;
+}
+
+.car-2 {
+  fill: #1f4ba2;
+  stroke: #1d468b;
+  stroke-width: 2;
+}
+
 .menu_list__item:hover, .menu_list__item:active {
-  background-color: violet;
+  background-color: #0d214b;
+  box-shadow: 0px 0px 3px 4px #0f275e;
+  color: #00BFFF;
+  outline: none;
+}
+
+.menu_list__item:focus {
+  outline: none;
 }
 
 /* . . . */

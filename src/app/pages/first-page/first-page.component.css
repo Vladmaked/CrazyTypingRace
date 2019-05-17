@@ -11,10 +11,8 @@
   margin-top: 30vh;
 }
 
-.page__global_modal-window {
-  display: flex;
-  position: absolute;
-  margin-top: 30vh;
+.btn--start {
+  font-size: 10vh;
 }
 
 .inputs {
@@ -53,8 +51,9 @@
   margin: 6% auto 0;
   border: none;
   text-transform: uppercase;
-  background: #2d395b;
+  /*background: #2d395b;*/
   border-radius: 5px;
+  background-image: linear-gradient(-25deg, #0e0915 0%, #192240 100%);
   font-size: 17px;
   font-weight: 800;
   text-align: center;
@@ -114,14 +113,14 @@
 }
 .start-timer__title {
   text-align: center;
-  color: #FFF;
-  font-size: 10vh ;
+  color: #dddddd;
+  font-size: 8vh ;
 }
 
 .timer {
   text-align: center;
   font-size: 30vw;
-  color: #FFF;
+  color: #dddddd;
 }
 
 .label_input_theme {
