@@ -186,7 +186,7 @@ export class GameComponent implements OnInit {
         this.htmlService.dataParsedOnService.speed = undefined;
       }
     } else {
-      this.speedOpponent = (Math.random() * -5 + 10);
+      this.speedOpponent = (Math.random() * -4 + 6);
     }
     if (!this.finish && this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
