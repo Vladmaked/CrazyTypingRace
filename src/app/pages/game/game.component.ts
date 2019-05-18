@@ -129,6 +129,7 @@ export class GameComponent implements OnInit {
       this.timeOfThisLatter = Date.now();
       if (this.indexLetter === this.letters[0].symbol.length - 1) {
         this.finish = this.timeOfThisLatter;
+        this.htmlService.isRenderedFinish = true;
       }
       this.speedCar = 1000 / (this.timeOfThisLatter - this.timeOfLastLatter);
       this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, speed: this.speedCar}));
@@ -150,7 +151,6 @@ export class GameComponent implements OnInit {
     } else if (this.finish) {
       this.speedCar *= 1.05;
       this.speedOpponent *= 1.05;
-      this.htmlService.isRenderedFinish = true;
     } else {
       this.slowdown(0.02);
     }
@@ -189,7 +189,7 @@ export class GameComponent implements OnInit {
         this.htmlService.dataParsedOnService.speed = undefined;
       }
     } else {
-      this.speedOpponent = (Math.random() * -5 + 10);
+      this.speedOpponent = (Math.random() * -4 + 6);
     }
     if (!this.finish && this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {

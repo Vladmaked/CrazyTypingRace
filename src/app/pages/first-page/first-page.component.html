@@ -34,7 +34,7 @@
     <div class="start-timer" *ngIf="this.isConnected && isRenderedTimer">
       <p class="start-timer__title">{{this.startTimerTitle}}</p>
       <p  class="timer">{{this.timer}}</p>
-<!--      <p  class="timer" *ngIf="this.isConnected && this.dataParsed.connected">{{this.dataParsed.timeout}}</p>-->
+      <button class="link link_submit text-submit" type="submit" (click)="onClickStartSinglePlayerGame()">Start single player game</button>
     </div>
   </div>
 

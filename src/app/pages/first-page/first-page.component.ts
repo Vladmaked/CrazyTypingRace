@@ -17,7 +17,7 @@ export class FirstPageComponent implements OnInit {
   isConnected = false;
   dataParsed: any;
   idInterval: any;
-  myClientID: any;
+  socketClientID: any;
   obj: any;
   timer: any;
   startTimerTitle = 'Waiting for an opponent...';
@@ -66,44 +66,51 @@ export class FirstPageComponent implements OnInit {
   this.socket$ = new WebSocket('wss://crazy-typing-race-backend.herokuapp.com:443');
   this.htmlService.socketOnService = this.socket$;
   this.socket$.onmessage = ({data}) => {
-    console.log('data:', data);
     try {
       this.dataParsed = JSON.parse(data);
       this.htmlService.dataParsedOnService = this.dataParsed;
-      if (this.myClientID === undefined) {
-        this.myClientID = this.dataParsed.ID;
-        this.obj = {connect: true,  IDtheme: this.htmlService.IDtheme, ID: this.myClientID};
-        this.socket$.send(JSON.stringify(this.obj, null, 1, ));
-        this.htmlService.myIDOnService = this.myClientID;
-      }
     } catch (err) {
       console.error(err);
     }
-    if (this.dataParsed.wait) {
-      this.isConnected = true;
-      this.waiting();
-    } else if (this.dataParsed.connected) {
-      if (this.idInterval && this.dataParsed.timeout === 1) {
-        this.socket$.send(JSON.stringify({text: this.htmlService.textOnService, game: true, ID: this.myClientID}));
-        console.log('Цей кл1ент в1дхуячив текст', this.dataParsed.text);
-      }
-      if (this.dataParsed.timeout === 15) {
-        this.htmlService.isOnline = true;
-        clearInterval(this.idInterval);
-        this.startTimerTitle = 'Start in:';
-        this.isConnected = true;
-      }
-      this.timer = this.dataParsed.timeout;
-      if (this.timer === 0) {
-        this.router.navigate(['game']);
-      }
-      console.log(this.dataParsed.timeout);
+    if (this.socketClientID === undefined) {
+      this.socketClientID = this.dataParsed.ID;
+      this.obj = {connect: true,  IDtheme: this.htmlService.IDtheme, ID: this.socketClientID};
+      this.socket$.send(JSON.stringify(this.obj, null, 1, ));
+      this.htmlService.myIDOnService = this.socketClientID;
     }
+    this.startGame();
+    };
+  }
 
+  startGame() {
+  if (this.dataParsed.wait) {
+    this.isConnected = true;
+    this.waiting();
+  } else if (this.dataParsed.connected) {
+    if (this.idInterval && this.dataParsed.timeout === 1) {
+      this.socket$.send(JSON.stringify({text: this.htmlService.textOnService, game: true, ID: this.socketClientID}));
+    }
+    if (this.dataParsed.timeout === 10) {
+      this.htmlService.isOnline = true;
+      clearInterval(this.idInterval);
+      this.startTimerTitle = 'Start in:';
+      this.isConnected = true;
+    }
+    this.timer = this.dataParsed.timeout;
+    if (this.timer === 0) {
+      this.router.navigate(['game']);
+    }
     if (this.dataParsed.text) {
       this.htmlService.textOnService = this.dataParsed.text;
     }
-  };
+  }
+  }
+
+  onClickStartSinglePlayerGame() {
+    clearInterval(this.idInterval);
+    this.htmlService.isOnline = false;
+    this.socket$.send(JSON.stringify({IDtheme: this.htmlService.IDtheme, disconnect: true}));
+    this.router.navigate(['game']);
   }
 
   onClickStartToPlay() {
