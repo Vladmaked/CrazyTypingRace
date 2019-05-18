@@ -53,6 +53,8 @@ export class GameComponent implements OnInit {
   speedOpponent = 7;
   positionCar = 0;
   positionOpponent = 0;
+  finishOpponent: number;
+  place: string;
   backgroundObjects;
   arrayOfGrassIds = [];
   arrayOfTreesIds = [];
@@ -130,6 +132,12 @@ export class GameComponent implements OnInit {
       if (this.indexLetter === this.letters[0].symbol.length - 1) {
         this.finish = this.timeOfThisLatter;
         this.htmlService.isRenderedFinish = true;
+        this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, finish: this.finish}));
+        if (this.finishOpponent) {
+          this.place = 'Second';
+        } else {
+          this.place = 'First';
+        }
       }
       this.speedCar = 1000 / (this.timeOfThisLatter - this.timeOfLastLatter);
       this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, speed: this.speedCar}));
@@ -177,20 +185,27 @@ export class GameComponent implements OnInit {
     } else {
       speed = 5 * this.speedCar;
     }
+
     let speedOpponent;
     if (this.speedOpponent > 1) {
       speedOpponent = Math.pow(5 * this.speedOpponent, 0.75);
     } else {
       speedOpponent = 5 * this.speedOpponent;
     }
+
     if (this.htmlService.isOnline) {
       if (this.htmlService.dataParsedOnService.speed !== undefined) {
         this.speedOpponent = this.htmlService.dataParsedOnService.speed;
         this.htmlService.dataParsedOnService.speed = undefined;
       }
+      if (this.htmlService.dataParsedOnService.finish !== undefined) {
+        this.finishOpponent = this.htmlService.dataParsedOnService.finish;
+        this.htmlService.dataParsedOnService.finish = undefined;
+      }
     } else {
       this.speedOpponent = (Math.random() * -4 + 6);
     }
+
     if (!this.finish && this.positionCar > MAX_POSITION) {
       this.backgroundObjects.forEach((object) => {
         object.renderPosition -= speed / object.distance;
