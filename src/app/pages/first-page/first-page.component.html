@@ -31,10 +31,10 @@
         <input class="link link_submit text-submit" type="submit" (click)="onClickStartToPlay()" value="Start to play" >
       </form>
     </div>
-    <div class="start-timer" *ngIf="this.isConnected && isRenderedTimer">
+    <div class="start-timer" *ngIf="this.isRenderedTimer">
       <p class="start-timer__title">{{this.startTimerTitle}}</p>
       <p  class="timer">{{this.timer}}</p>
-      <button class="link link_submit text-submit" type="submit" (click)="onClickStartSinglePlayerGame()">Start single player game</button>
+      <button class="link link_submit text-submit" *ngIf="!isConnected" type="submit" (click)="onClickStartSinglePlayerGame()">Start single player game</button>
     </div>
   </div>
 

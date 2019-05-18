@@ -13,12 +13,11 @@ export class FirstPageComponent implements OnInit {
   gameSettingsForm: FormGroup;
   isRenderedStart = true;
   isRenderedSet = false;
-  isRenderedTimer = true;
+  isRenderedTimer = false;
   isConnected = false;
   dataParsed: any;
   idInterval: any;
   socketClientID: any;
-  obj: any;
   timer: any;
   startTimerTitle = 'Waiting for an opponent...';
 
@@ -74,8 +73,8 @@ export class FirstPageComponent implements OnInit {
       }
       if (this.socketClientID === undefined) {
         this.socketClientID = this.dataParsed.ID;
-        this.obj = {connect: true,  IDtheme: this.htmlService.IDtheme, ID: this.socketClientID};
-        this.socket$.send(JSON.stringify(this.obj, null, 1, ));
+        const obj = {connect: true,  IDtheme: this.htmlService.IDtheme, ID: this.socketClientID};
+        this.socket$.send(JSON.stringify(obj, null, 1, ));
         this.htmlService.myIDOnService = this.socketClientID;
       }
       this.waitGame();
@@ -84,15 +83,19 @@ export class FirstPageComponent implements OnInit {
 
   waitGame() {
     if (this.dataParsed.wait) {
-      this.isConnected = true;
+      this.isRenderedTimer = true;
       this.waiting();
+      return;
     }
 
     if (this.dataParsed.text) {
       this.htmlService.textOnService = this.dataParsed.text;
+      return;
     }
 
     if (this.dataParsed.connected) {
+      this.timer = this.dataParsed.timeout;
+
       if (this.idInterval && this.dataParsed.timeout === 1) {
         this.socket$.send(JSON.stringify({text: this.htmlService.textOnService, game: true, ID: this.socketClientID}));
       }
@@ -101,14 +104,13 @@ export class FirstPageComponent implements OnInit {
         this.htmlService.isOnline = true;
         clearInterval(this.idInterval);
         this.startTimerTitle = 'Start in:';
+        this.isRenderedTimer = true;
         this.isConnected = true;
       }
 
-      this.timer = this.dataParsed.timeout;
-
       if (this.timer === 0) {
-        this.router.navigate(['game']);
         this.idInterval = undefined;
+        this.router.navigate(['game']);
       }
     }
   }
