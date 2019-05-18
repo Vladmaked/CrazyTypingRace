@@ -70,6 +70,9 @@ export class GameComponent implements OnInit {
       const child = document.createElement('span');
       child.innerText = this.letters[0].symbol[i];
       document.getElementById('textZone').appendChild(child);
+      if (this.letters[0].symbol[i] === ' ') {
+        child.innerText = '\u2002';
+      }
       child.setAttribute('id', String(i));
       child.setAttribute('class', 'text');
     }
