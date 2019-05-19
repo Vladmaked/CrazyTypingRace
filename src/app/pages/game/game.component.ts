@@ -58,6 +58,7 @@ export class GameComponent implements OnInit {
   typingSpeed: number;
   mistakes: number = 0;
   backgroundObjects;
+  isRenderedFinish: any;
   arrayOfGrassIds = [];
   arrayOfTreesIds = [];
 
@@ -134,7 +135,7 @@ export class GameComponent implements OnInit {
       if (this.indexLetter === this.letters[0].symbol.length - 1) {
         this.finish = this.timeOfThisLatter;
         this.typingSpeed = Math.round(this.speedCar * 60);
-        this.htmlService.isRenderedFinish = true;
+        this.isRenderedFinish = true;
         this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, finish: this.finish}));
         if (this.finishOpponent) {
           this.place = 'You lose';
