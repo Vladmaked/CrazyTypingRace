@@ -44,21 +44,36 @@
   overflow: hidden;
 }
 
+.finish {
+  display: flex;
+  flex-direction: column;
+}
 
 .container__finish {
   width: 50vw;
-  height: 50vh;
+  height: 40vh;
   margin-left: 27vw;
 }
 
-.container__finish__text {
+.container__finish__title {
   text-align: center;
   font-size: 7vw;
   color: rgb(0, 191, 255);
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 3px;
   vertical-align: middle;
-  line-height: 40vh;
+  line-height: 23vh;
+  margin: auto;
+}
+
+.container__finish__text {
+  text-align: center;
+  font-size: 3vw;
+  color: rgb(4, 118, 189);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  vertical-align: middle;
+  line-height: 10vh;
   margin: auto;
 }
 

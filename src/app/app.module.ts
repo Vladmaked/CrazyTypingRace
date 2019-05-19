@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'home', component: FirstPageComponent },
   { path: 'about-us', component: AboutUsPageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', component: FirstPageComponent },
   { path: '**', component: FirstPageComponent}
 ];

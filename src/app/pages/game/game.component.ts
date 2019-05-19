@@ -55,6 +55,8 @@ export class GameComponent implements OnInit {
   positionOpponent = 0;
   finishOpponent: number;
   place: string;
+  typingSpeed: number;
+  mistakes: number = 0;
   backgroundObjects;
   arrayOfGrassIds = [];
   arrayOfTreesIds = [];
@@ -131,12 +133,13 @@ export class GameComponent implements OnInit {
       this.timeOfThisLatter = Date.now();
       if (this.indexLetter === this.letters[0].symbol.length - 1) {
         this.finish = this.timeOfThisLatter;
+        this.typingSpeed = Math.round(this.speedCar * 60);
         this.htmlService.isRenderedFinish = true;
         this.htmlService.socketOnService.send(JSON.stringify({game: true, ID: this.htmlService.myIDOnService, finish: this.finish}));
         if (this.finishOpponent) {
-          this.place = 'Second';
+          this.place = 'You lose';
         } else {
-          this.place = 'First';
+          this.place = 'You winner';
         }
       }
       this.speedCar = 1000 / (this.timeOfThisLatter - this.timeOfLastLatter);
@@ -147,6 +150,7 @@ export class GameComponent implements OnInit {
       this.indexSpan ++;
       span.style.display = 'none';
     } else {
+      this.mistakes += 1;
       span.style.backgroundColor = '#500000';
       this.slowdown(0.01);
     }
@@ -203,7 +207,7 @@ export class GameComponent implements OnInit {
         this.htmlService.dataParsedOnService.finish = undefined;
       }
     } else {
-      this.speedOpponent = (Math.random() * -4 + 6);
+      this.speedOpponent = (Math.random() * -4 + 7);
     }
 
     if (!this.finish && this.positionCar > MAX_POSITION) {

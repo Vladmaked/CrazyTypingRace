@@ -250,7 +250,11 @@
   <p class="text" id="textZone"></p>
 </div>
 <div class="container container__finish" *ngIf="this.htmlService.isRenderedFinish">
-  <p class="container__finish__text">You winner!</p>
+  <div class="finish">
+    <p class="container__finish__title">{{this.place}}</p>
+    <p class="container__finish__text">Typing speed: {{this.typingSpeed}} chars/MIN</p>
+    <p class="container__finish__text">Mistakes: {{this.mistakes}}</p>
+  </div>
 </div>
 <div class="road">
   <div #car class="road_up">
