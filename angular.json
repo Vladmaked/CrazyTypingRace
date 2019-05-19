@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/normalize.css/normalize.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -82,7 +83,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["node_modules/gsap/src/uncompressed/TweenMax.js"],
             "assets": [
               "src/favicon.ico",
               "src/assets"

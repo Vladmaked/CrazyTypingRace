@@ -1,0 +1,213 @@
+.header {
+  height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #213a7d;
+}
+
+.menu_list {
+  padding: auto;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu_list__item {
+  color: #FFF;
+  opacity: 0.7;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.menu_list__item--login {
+  background-color: #00BFFF;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  box-shadow: 0px 0px 5px 8px #3ee4ff;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  height: 69vh;
+  width: 100vw;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.finish {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__finish {
+  width: 50vw;
+  height: 40vh;
+  margin-left: 27vw;
+}
+
+.container__finish__title {
+  text-align: center;
+  font-size: 7vw;
+  color: rgb(0, 191, 255);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  vertical-align: middle;
+  line-height: 23vh;
+  margin: auto;
+}
+
+.container__finish__text {
+  text-align: center;
+  font-size: 3vw;
+  color: rgb(4, 118, 189);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  vertical-align: middle;
+  line-height: 10vh;
+  margin: auto;
+}
+
+.container_tree,
+.container_grass,
+.container_bug,
+.road {
+  width: 100vw;
+  position: absolute;
+  overflow-x: hidden;
+  left: 0;
+}
+
+.container_tree {
+  height: 50%;
+  padding-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_grass {
+  width: 100%;
+  height: 5%;
+  background-color: #0eab68;
+}
+
+.container_bug {
+  height: 3%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.plus {
+  position: absolute;
+  left: 100%;
+}
+
+.tree, .grass {
+  height: 100%;
+}
+
+.tree {
+  padding-left: 30px;
+}
+
+.grass_polygon {
+  fill: #243F20;
+}
+
+/* . . . */
+
+.container_mountains {
+  background-color: #213a7d;
+}
+
+.mountains {
+  width: 100%;
+  height: 90%;
+  padding-bottom: 1%;
+  position: absolute;
+}
+
+.text {
+  margin: auto;
+  display: block;
+  width: 60%;
+  color: rgb(0, 191, 255);
+  text-align: justify;
+  font-size: 3vh;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
+.car-1 {
+  fill: #0d214b;
+  stroke: #0c1f45;
+  stroke-width: 2;
+}
+
+.car-2 {
+  fill: #1f4ba2;
+  stroke: #1d468b;
+  stroke-width: 2;
+}
+
+.menu_list__item:hover, .menu_list__item:active {
+  background-color: #0d214b;
+  box-shadow: 0px 0px 3px 4px #0f275e;
+  color: #00BFFF;
+  outline: none;
+}
+
+.menu_list__item:focus {
+  outline: none;
+}
+
+/* . . . */
+
+.road {
+  height: 17vh;
+  width: 100vw;
+  background-color: #333333;
+  bottom:0;
+  right:0;
+}
+
+.road_up {
+  height: 44%;
+  margin: 0;
+  position: relative;
+}
+
+.line {
+  margin: 0;
+  height: 5%;
+  background-color: white;
+}
+
+.road_down {
+  height: 45%;
+  position: relative;
+}
+
+.car {
+  position: fixed;
+  padding-left: 10px;
+  height: 12%;
+  margin-top: -55px;
+}
+
+.car--opponent {
+  margin-top: -52px;
+  height: 13.5%;
+}
