@@ -75,6 +75,7 @@ export class GameComponent implements OnInit {
       const child = document.createElement('span');
       child.innerText = this.letters[0].symbol[i];
       document.getElementById('textZone').appendChild(child);
+      console.log(this.letters[0].symbol[i]);
       if (this.letters[0].symbol[i] === ' ') {
         child.innerText = '\u2002';
       }
@@ -150,6 +151,7 @@ export class GameComponent implements OnInit {
       this.indexLetter ++;
       this.indexSpan ++;
       span.style.display = 'none';
+      // span.style.backgroundColor = 'green';
     } else {
       this.mistakes += 1;
       span.style.backgroundColor = '#500000';
