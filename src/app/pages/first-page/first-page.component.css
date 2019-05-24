@@ -1,0 +1,133 @@
+.page__global_info {
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
+
+.btn-section {
+  flex: 2;
+  margin-top: 30vh;
+}
+
+.btn--start {
+  font-size: 10vh;
+}
+
+.inputs {
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input {
+  display: block;
+  position: relative;
+  height: auto;
+  padding: 20px;
+
+  font-size: 20px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.input_category {
+  background-color: #444e6f;
+  width: 20px;
+  margin: auto 5px;
+}
+
+.input_theme {
+  background-color: #49526f;
+  width: 20px;
+  margin: auto 5px;
+}
+
+.link_submit {
+  display: block;
+  width: 380px;
+  height: 52px;
+  margin: 6% auto 0;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-image: linear-gradient(-25deg, #180d21 0%, #192240 100%);
+  border: 1px solid #1f2647;
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+  padding: 0 0 0 15px;
+}
+
+.form {
+  min-width: 500px;
+  max-width: 30vw;
+  padding: 5px 25px 25px 25px;
+  justify-content: center;
+  background-image: linear-gradient(-25deg, #180d21 0%, #192240 100%);
+  border-radius: 10px;
+  border: 3px solid #1f2647;
+  color: #96B7C4;
+}
+
+.form__title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
+.form__category {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -15px;
+  margin-left: -10px;
+  justify-content: space-between;
+}
+
+.form__label{
+  width: calc(100%/3 - 10px);
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.form__theme__title {
+  padding: 25px 0;
+  color: #96B7C4;
+}
+
+.form__theme {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__theme__input {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -15px;
+  margin-left: -10px;
+  justify-content: space-between;
+}
+
+.start-timer {
+  position: absolute;
+  margin-top: 15vh;
+}
+.start-timer__title {
+  text-align: center;
+  color: #dddddd;
+  font-size: 8vh ;
+}
+
+.timer {
+  text-align: center;
+  font-size: 45vh;
+  color: #dddddd;
+}
+
+.label_input_theme {
+  line-height: 90px;
+}
+
+.label_input_category {
+  line-height: 90px;
+}

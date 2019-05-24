@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  apiUrl: 'https://crazy-typing-race-backend.herokuapp.com:443/'
+  // apiUrl: 'https://localhost:3000'
 };
 
 /*

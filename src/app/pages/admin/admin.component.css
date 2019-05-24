@@ -1,0 +1,86 @@
+.container{
+  height: 100vh;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(-25deg, #0e0915 0%, #192240 100%);
+}
+
+.title {
+  font-size: 42px;
+  text-align: center;
+  align-content: center;
+  letter-spacing: .5rem;
+  padding-top: 50px;
+  color: #FFF;
+}
+.header{
+  height: 20%;
+}
+.admin-form {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 80%;
+  color: #FFF;
+  font-size: 1.5vw;
+ }
+
+.admin-form__text-addition {
+  display: flex;
+  flex-direction: column;
+  width: 36vw;
+  padding: 23px;
+}
+
+.admin-form__theme-addition {
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+  margin-top: 50px;
+}
+
+.admin-form__category-addition{
+  display: flex;
+  padding: 23px;
+  flex-direction: column;
+}
+
+.admin-form__category-and-theme-addition{
+  width: 36vw;
+}
+
+.form-input{
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.form-textarea{
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  height: 25vh;
+}
+
+.form-btn{
+  width: 64px;
+  height: 64px;
+  background: url(https://img.icons8.com/cotton/64/000000/checkmark.png) no-repeat;
+  border: none;
+  margin-left: auto;
+}
+
+.form-btn:focus {
+  outline: none;
+}
+
+.form-btn:hover{
+  opacity: .7;
+}
+
+.form-btn:active{
+  opacity: 1;
+}

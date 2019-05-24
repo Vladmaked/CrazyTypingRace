@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="header">
+    <h2 class="title">Hello my God! Welcome to the admin page</h2>
+    <p class="title title--sm">What do you want to create or add?</p>
+  </div>
+  <div class="admin-form">
+    <div class="admin-form__category-and-theme-addition">
+      <div>
+        <form [formGroup]="categoryAdditionForm" (ngSubmit)="onSubmitCategory()">
+          <fieldset class="admin-form__category-addition">
+            <legend>Creating category</legend>
+              <input class="form-input" formControlName="category" placeholder="Category">
+            <button class="form-btn" type="submit" title="Save"></button>
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <form [formGroup]="themeAdditionForm" (ngSubmit)="onSubmitTheme()">
+          <fieldset class="admin-form__theme-addition">
+            <legend>Adding theme</legend>
+              <input  class="form-input" formControlName="category" placeholder="Category">
+              <input class="form-input" formControlName="theme" placeholder="Theme">
+            <button class="form-btn" type="submit" title="Save"></button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+      <form [formGroup]="textAdditionForm" (ngSubmit)="onSubmitText()" novalidate>
+        <fieldset class="admin-form__text-addition">
+          <legend>Adding text </legend>
+            <input  class="form-input" formControlName="category" placeholder="Category">
+            <input  class="form-input" formControlName="theme" placeholder="Theme">
+            <textarea class="form-textarea" formControlName="body" placeholder="Body"></textarea>
+          <button class="form-btn" type="submit" title="Save"></button>
+        </fieldset>
+      </form>
+  </div>
+</div>
