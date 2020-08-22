@@ -5,7 +5,7 @@ import { AdminComponent } from './admin.component';
 describe('AdminComponent', () => {
   let component: AdminComponent;
   let fixture: ComponentFixture<AdminComponent>;
-
+	// hello
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AdminComponent ]
